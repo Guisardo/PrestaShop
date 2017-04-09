@@ -1,476 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-  <file original="src/Adapter/Module/Tab/ModuleTabRegister.php" source-language="en-US" target-language="en" datatype="plaintext">
-    <body>
-      <trans-unit id="ee34aeaa570c9f1c206b8401d6eaa58d">
-        <source>Failed to install admin tab "%name%".</source>
-        <target>Failed to install admin tab "%name%".</target>
-        <note>Context:
-File: src/Adapter/Module/Tab/ModuleTabRegister.php:257</note>
-      </trans-unit>
-    </body>
-  </file>
-  <file original="src/Adapter/Module/Tab/ModuleTabUnregister.php" source-language="en-US" target-language="en" datatype="plaintext">
-    <body>
-      <trans-unit id="e85403d2e654955b45105b9929924c89">
-        <source>Failed to uninstall admin tab "%name%".</source>
-        <target>Failed to uninstall admin tab "%name%".</target>
-        <note>Context:
-File: src/Adapter/Module/Tab/ModuleTabUnregister.php:98</note>
-      </trans-unit>
-    </body>
-  </file>
-  <file original="src/Adapter/Module/ModuleDataProvider.php" source-language="en-US" target-language="en" datatype="plaintext">
-    <body>
-      <trans-unit id="429cc2fb9f1cb16782b0af5ba748096d">
-        <source>Parse error detected in main class of module %module%!</source>
-        <target>Parse error detected in main class of module %module%!</target>
-        <note>Context:
-File: src/Adapter/Module/ModuleDataProvider.php:183</note>
-      </trans-unit>
-      <trans-unit id="e03545a6c414502e72d232b4c30d9fdd">
-        <source>Error while loading file of module %module%. %error_message%</source>
-        <target>Error while loading file of module %module%. %error_message%</target>
-        <note>Context:
-File: src/Adapter/Module/ModuleDataProvider.php:201</note>
-      </trans-unit>
-    </body>
-  </file>
-  <file original="src/Adapter/Module/ModuleZipManager.php" source-language="en-US" target-language="en" datatype="plaintext">
-    <body>
-      <trans-unit id="08859ef1a837ae429ff2e4decc952cbe">
-        <source>Unable to find uploaded module at the following path: %file%</source>
-        <target>Unable to find uploaded module at the following path: %file%</target>
-        <note>Context:
-File: src/Adapter/Module/ModuleZipManager.php:82</note>
-      </trans-unit>
-      <trans-unit id="848578a1a363f2c2443b3989154bf646">
-        <source>Cannot extract module in %path% to get its name. %error%</source>
-        <target>Cannot extract module in %path% to get its name. %error%</target>
-        <note>Context:
-File: src/Adapter/Module/ModuleZipManager.php:92</note>
-      </trans-unit>
-      <trans-unit id="a85499f3d020141df9b6203b7585a9bf">
-        <source>This file does not seem to be a valid module zip</source>
-        <target>This file does not seem to be a valid module zip</target>
-        <note>Context:
-File: src/Adapter/Module/ModuleZipManager.php:129</note>
-      </trans-unit>
-    </body>
-  </file>
-  <file original="src/PrestaShopBundle/Controller/Admin/ModuleController.php" source-language="en-US" target-language="en" datatype="plaintext">
-    <body>
-      <trans-unit id="89d371deca1b2b50a933fabc8005ccfb">
-        <source>%module% did not return a valid response on installation.</source>
-        <target>%module% did not return a valid response on installation.</target>
-        <note>Context:
-File: src/PrestaShopBundle/Controller/Admin/ModuleController.php:520</note>
-      </trans-unit>
-      <trans-unit id="35e839bc1864dd50a75500028c3ebb33">
-        <source>Installation of module %module% was successful.</source>
-        <target>Installation of module %module% was successful.</target>
-        <note>Context:
-File: src/PrestaShopBundle/Controller/Admin/ModuleController.php:525</note>
-      </trans-unit>
-      <trans-unit id="f52c6f7b6fcbd586aee22044aeb6c897">
-        <source>Installation of module %module% failed. %error%</source>
-        <target>Installation of module %module% failed. %error%</target>
-        <note>Context:
-File: src/PrestaShopBundle/Controller/Admin/ModuleController.php:532</note>
-      </trans-unit>
-      <trans-unit id="fc7da9518fbe20ebcaccbf5f8fd0e7df">
-        <source>Synchronized with Addons marketplace!</source>
-        <target>Synchronized with Addons marketplace!</target>
-        <note>Context:
-File: src/PrestaShopBundle/Controller/Admin/ModuleController.php:657</note>
-      </trans-unit>
-    </body>
-  </file>
-  <file original="src/Core/Addon/Module/ModuleRepository.php" source-language="en-US" target-language="en" datatype="plaintext">
-    <body>
-      <trans-unit id="a3214c22fd9d21c988d9bb06748d6d9f">
-        <source>Parse error on module %module%. %error_details%</source>
-        <target>Parse error on module %module%. %error_details%</target>
-        <note>Context:
-File: src/Core/Addon/Module/ModuleRepository.php:339</note>
-      </trans-unit>
-      <trans-unit id="bcc1e7daae2727b6d7a32567086cd84f">
-        <source>Unexpected exception on module %module%. %error_details%</source>
-        <target>Unexpected exception on module %module%. %error_details%</target>
-        <note>Context:
-File: src/Core/Addon/Module/ModuleRepository.php:347</note>
-      </trans-unit>
-      <trans-unit id="9fcc3446d55e632b5f3ca13fc810c83b">
-        <source>Loading data from Addons failed. %error_details%</source>
-        <target>Loading data from Addons failed. %error_details%</target>
-        <note>Context:
-File: src/Core/Addon/Module/ModuleRepository.php:389</note>
-      </trans-unit>
-      <trans-unit id="0554e4a4ddb313c3962088dc32647e90">
-        <source>Parse error detected in module %module%. %error_details%.</source>
-        <target>Parse error detected in module %module%. %error_details%.</target>
-        <note>Context:
-File: src/Core/Addon/Module/ModuleRepository.php:509</note>
-      </trans-unit>
-      <trans-unit id="40e7db035e09d8f198b96a7d5d9e821f">
-        <source>Exception detected while loading module %module%. %error_details%.</source>
-        <target>Exception detected while loading module %module%. %error_details%.</target>
-        <note>Context:
-File: src/Core/Addon/Module/ModuleRepository.php:517</note>
-      </trans-unit>
-    </body>
-  </file>
-  <file original="src/Core/Addon/Module/ModuleManager.php" source-language="en-US" target-language="en" datatype="plaintext">
-    <body>
-      <trans-unit id="f2715f72988009e4f50e94d88b3df89f">
-        <source>You are not allowed to install modules.</source>
-        <target>You are not allowed to install modules.</target>
-        <note>Context:
-File: src/Core/Addon/Module/ModuleManager.php:220</note>
-      </trans-unit>
-      <trans-unit id="69ae13c289241714dfa0bd4e2f5bbcca">
-        <source>You are not allowed to uninstall this module.</source>
-        <target>You are not allowed to uninstall this module.</target>
-        <note>Context:
-File: src/Core/Addon/Module/ModuleManager.php:267</note>
-      </trans-unit>
-      <trans-unit id="1a263755e673bdbfc6ec6739a32e2fac">
-        <source>You are not allowed to upgrade this module.</source>
-        <target>You are not allowed to upgrade this module.</target>
-        <note>Context:
-File: src/Core/Addon/Module/ModuleManager.php:305</note>
-      </trans-unit>
-      <trans-unit id="83a812de8784135990c57d25d0f9b34b">
-        <source>The module %module% must be installed first</source>
-        <target>The module %module% must be installed first</target>
-        <note>Context:
-File: src/Core/Addon/Module/ModuleManager.php:313</note>
-      </trans-unit>
-      <trans-unit id="ceb04ec3e143ec849005533a507b81b7">
-        <source>You are not allowed to disable this module.</source>
-        <target>You are not allowed to disable this module.</target>
-        <note>Context:
-File: src/Core/Addon/Module/ModuleManager.php:350</note>
-      </trans-unit>
-      <trans-unit id="b58f4b4f4f870b40e52c42c161df0d60">
-        <source>Error when disabling module %module%. %error_details%.</source>
-        <target>Error when disabling module %module%. %error_details%.</target>
-        <note>Context:
-File: src/Core/Addon/Module/ModuleManager.php:361</note>
-      </trans-unit>
-      <trans-unit id="a2825f14a9e0bf0b004b2a255317d6dd">
-        <source>You are not allowed to enable this module.</source>
-        <target>You are not allowed to enable this module.</target>
-        <note>Context:
-File: src/Core/Addon/Module/ModuleManager.php:386</note>
-      </trans-unit>
-      <trans-unit id="fbaf1c9434442c780f3eddff4406603c">
-        <source>Error when enabling module %module%. %error_details%.</source>
-        <target>Error when enabling module %module%. %error_details%.</target>
-        <note>Context:
-File: src/Core/Addon/Module/ModuleManager.php:397</note>
-      </trans-unit>
-      <trans-unit id="974a1527e3b406ebb7c772ddd2a7aa41">
-        <source>You are not allowed to disable this module on mobile.</source>
-        <target>You are not allowed to disable this module on mobile.</target>
-        <note>Context:
-File: src/Core/Addon/Module/ModuleManager.php:421</note>
-      </trans-unit>
-      <trans-unit id="976dc5c6fc2fe73b2c43c7776847e593">
-        <source>Error when disabling module %module% on mobile. %error_details%</source>
-        <target>Error when disabling module %module% on mobile. %error_details%</target>
-        <note>Context:
-File: src/Core/Addon/Module/ModuleManager.php:432</note>
-      </trans-unit>
-      <trans-unit id="8459337c91608e117589881cc560b0e6">
-        <source>You are not allowed to enable this module on mobile.</source>
-        <target>You are not allowed to enable this module on mobile.</target>
-        <note>Context:
-File: src/Core/Addon/Module/ModuleManager.php:455</note>
-      </trans-unit>
-      <trans-unit id="416bc5074d9b9944a51797b081492442">
-        <source>Error when enabling module %module% on mobile. %error_details%</source>
-        <target>Error when enabling module %module% on mobile. %error_details%</target>
-        <note>Context:
-File: src/Core/Addon/Module/ModuleManager.php:466</note>
-      </trans-unit>
-      <trans-unit id="a608a854a4091bd1f92cff310ba09b25">
-        <source>You are not allowed to reset this module.</source>
-        <target>You are not allowed to reset this module.</target>
-        <note>Context:
-File: src/Core/Addon/Module/ModuleManager.php:487</note>
-      </trans-unit>
-      <trans-unit id="387aeee114093679248f936ba36ee416">
-        <source>Error when resetting module %module%. %error_details%</source>
-        <target>Error when resetting module %module%. %error_details%</target>
-        <note>Context:
-File: src/Core/Addon/Module/ModuleManager.php:502</note>
-      </trans-unit>
-      <trans-unit id="c913de38eb118ce08ddae76f27063126">
-        <source>Unfortunately, the module did not return additional details.</source>
-        <target>Unfortunately, the module did not return additional details.</target>
-        <note>Context:
-File: src/Core/Addon/Module/ModuleManager.php:563</note>
-      </trans-unit>
-    </body>
-  </file>
-  <file original="classes/Validate.php" source-language="en-US" target-language="en" datatype="plaintext">
-    <body>
-      <trans-unit id="f996dce5bdfb1b1094e41cf996c5fdae">
-        <source>Please specify module URL</source>
-        <target>Please specify module URL</target>
-        <note>Context:
-File: classes/Validate.php:63</note>
-      </trans-unit>
-    </body>
-  </file>
-  <file original="controllers/admin/AdminModulesController.php" source-language="en-US" target-language="en" datatype="plaintext">
-    <body>
-      <trans-unit id="8095c31813f8e77d292bf6bec964169b">
-        <source>Unknown archive type.</source>
-        <target>Unknown archive type.</target>
-        <note>Context:
-File: controllers/admin/AdminModulesController.php:604</note>
-      </trans-unit>
-      <trans-unit id="723aac54d8b88c84ca0c9328f3912bf9">
-        <source>There was an error while extracting the module (file may be corrupted).</source>
-        <target>There was an error while extracting the module (file may be corrupted).</target>
-        <note>Context:
-File: controllers/admin/AdminModulesController.php:428</note>
-      </trans-unit>
-      <trans-unit id="2d2c4b710382f05c8cb697187f381f7c">
-        <source>The module %1$s that you uploaded is not a valid module.</source>
-        <target>The module %1$s that you uploaded is not a valid module.</target>
-        <note>Context:
-File: controllers/admin/AdminModulesController.php:433</note>
-      </trans-unit>
-      <trans-unit id="c09b8da183ec54308a4c59ab1f1ab792">
-        <source>You do not have the permission to use this module.</source>
-        <target>You do not have the permission to use this module.</target>
-        <note>Context:
-File: controllers/admin/AdminModulesController.php:688</note>
-      </trans-unit>
-      <trans-unit id="7cbb3ce25a6d0abd528dbd744da03e7f">
-        <source>Cannot reset this module.</source>
-        <target>Cannot reset this module.</target>
-        <note>Context:
-File: controllers/admin/AdminModulesController.php:540</note>
-      </trans-unit>
-      <trans-unit id="d765d45adba914dc9006cc7ec0b2faf5">
-        <source>Cannot install this module.</source>
-        <target>Cannot install this module.</target>
-        <note>Context:
-File: controllers/admin/AdminModulesController.php:547</note>
-      </trans-unit>
-      <trans-unit id="f973e6a744c0c50d212b7fd1430153f7">
-        <source>Cannot uninstall this module.</source>
-        <target>Cannot uninstall this module.</target>
-        <note>Context:
-File: controllers/admin/AdminModulesController.php:550</note>
-      </trans-unit>
-      <trans-unit id="08da26423466f4cadc0fd6e201711dcd">
-        <source>Cannot load the module's object.</source>
-        <target>Cannot load the module's object.</target>
-        <note>Context:
-File: controllers/admin/AdminModulesController.php:669</note>
-      </trans-unit>
-      <trans-unit id="8969f3823d6bbf4cff9ea8118d8b3ecb">
-        <source>An error occurred while copying the archive to the module directory.</source>
-        <target>An error occurred while copying the archive to the module directory.</target>
-        <note>Context:
-File: controllers/admin/AdminModulesController.php:606</note>
-      </trans-unit>
-      <trans-unit id="4654007119386a8ace934133208feed5">
-        <source>Sorry, the module cannot be deleted. Please check if you have the right permissions on this folder.</source>
-        <target>Sorry, the module cannot be deleted. Please check if you have the right permissions on this folder.</target>
-        <note>Context:
-File: controllers/admin/AdminModulesController.php:702</note>
-      </trans-unit>
-      <trans-unit id="8875d822d9402acb528eb9c55401a573">
-        <source>You need to be logged in to your PrestaShop Addons account in order to update the %s module. %s</source>
-        <target>You need to be logged in to your PrestaShop Addons account in order to update the %s module. %s</target>
-        <note>Context:
-File: controllers/admin/AdminModulesController.php:807</note>
-      </trans-unit>
-      <trans-unit id="af67db57c79006fd9464c65865f36a44">
-        <source>Module %s cannot be upgraded: Error while downloading the latest version.</source>
-        <target>Module %s cannot be upgraded: Error while downloading the latest version.</target>
-        <note>Context:
-File: controllers/admin/AdminModulesController.php:832</note>
-      </trans-unit>
-      <trans-unit id="e6148a0bace3c593e161009060a7da99">
-        <source>Module %s cannot be upgraded: Error while extracting the latest version.</source>
-        <target>Module %s cannot be upgraded: Error while extracting the latest version.</target>
-        <note>Context:
-File: controllers/admin/AdminModulesController.php:834</note>
-      </trans-unit>
-      <trans-unit id="408e2019e00a54bbaace8e6ea29a736b">
-        <source>You do not have the rights to update the %s module. Please make sure you are logged in to the PrestaShop Addons account that purchased the module.</source>
-        <target>You do not have the rights to update the %s module. Please make sure you are logged in to the PrestaShop Addons account that purchased the module.</target>
-        <note>Context:
-File: controllers/admin/AdminModulesController.php:840</note>
-      </trans-unit>
-      <trans-unit id="811c568a06f4f5f038609a98512e9416">
-        <source>You do not have permission to access this module.</source>
-        <target>You do not have permission to access this module.</target>
-        <note>Context:
-File: controllers/admin/AdminModulesController.php:860</note>
-      </trans-unit>
-      <trans-unit id="81d2521b93f4b3abdc3877f76e04005a">
-        <source>You do not have permission to install this module.</source>
-        <target>You do not have permission to install this module.</target>
-        <note>Context:
-File: controllers/admin/AdminModulesController.php:864</note>
-      </trans-unit>
-      <trans-unit id="d7569980257d11fbd66deb501f5efab8">
-        <source>You do not have permission to delete this module.</source>
-        <target>You do not have permission to delete this module.</target>
-        <note>Context:
-File: controllers/admin/AdminModulesController.php:866</note>
-      </trans-unit>
-      <trans-unit id="5a69d1cb0ef4096b272b3b441555d737">
-        <source>You do not have permission to configure this module.</source>
-        <target>You do not have permission to configure this module.</target>
-        <note>Context:
-File: controllers/admin/AdminModulesController.php:868</note>
-      </trans-unit>
-      <trans-unit id="2c465b2a1769653563dcacfc83ab61d0">
-        <source>This module is already installed: %s.</source>
-        <target>This module is already installed: %s.</target>
-        <note>Context:
-File: controllers/admin/AdminModulesController.php:870</note>
-      </trans-unit>
-      <trans-unit id="0ec73cc5b2910764fc221acb633c20bc">
-        <source>This module has already been uninstalled: %s.</source>
-        <target>This module has already been uninstalled: %s.</target>
-        <note>Context:
-File: controllers/admin/AdminModulesController.php:872</note>
-      </trans-unit>
-      <trans-unit id="ee043fd10baac04e50a4256d7406e93c">
-        <source>This module needs to be installed in order to be updated: %s.</source>
-        <target>This module needs to be installed in order to be updated: %s.</target>
-        <note>Context:
-File: controllers/admin/AdminModulesController.php:874</note>
-      </trans-unit>
-      <trans-unit id="4e03a50f18350f93b8ec321b488a4a8c">
-        <source>You do not have permission to uninstall this module.</source>
-        <target>You do not have permission to uninstall this module.</target>
-        <note>Context:
-File: controllers/admin/AdminModulesController.php:898</note>
-      </trans-unit>
-      <trans-unit id="d3c1a921b833767f27ffcc401a87d93b">
-        <source>The following module(s) could not be uninstalled properly: %s.</source>
-        <target>The following module(s) could not be uninstalled properly: %s.</target>
-        <note>Context:
-File: controllers/admin/AdminModulesController.php:1035</note>
-      </trans-unit>
-      <trans-unit id="89bbb6a140e2fc5ff52b2211083a2721">
-        <source>The following module(s) could not be installed properly: %s.</source>
-        <target>The following module(s) could not be installed properly: %s.</target>
-        <note>Context:
-File: controllers/admin/AdminModulesController.php:1037</note>
-      </trans-unit>
-      <trans-unit id="3987153b2cf88c9476ba9dc8d1de52bc">
-        <source>The following module(s) were not upgraded successfully: %s.</source>
-        <target>The following module(s) were not upgraded successfully: %s.</target>
-        <note>Context:
-File: controllers/admin/AdminModulesController.php:1624</note>
-      </trans-unit>
-    </body>
-  </file>
   <file original="classes/controller/AdminController.php" source-language="en-US" target-language="en" datatype="plaintext">
     <body>
       <trans-unit id="9bbf45a624c880d590d7b6796e5a7a9c">
         <source>The module was successfully downloaded.</source>
         <target>The module was successfully downloaded.</target>
         <note>Context:
-File: classes/controller/AdminController.php:448</note>
-      </trans-unit>
-      <trans-unit id="6832d3339f3238558d9e290f4ff36bb8">
-        <source>Module(s) installed successfully.</source>
-        <target>Module(s) installed successfully.</target>
-        <note>Context:
-File: classes/controller/AdminController.php:452</note>
-      </trans-unit>
-      <trans-unit id="0be078b247fde4986e320cd2684e7ab9">
-        <source>Module(s) uninstalled successfully.</source>
-        <target>Module(s) uninstalled successfully.</target>
-        <note>Context:
-File: classes/controller/AdminController.php:453</note>
-      </trans-unit>
-      <trans-unit id="980b6caee06822f8c5df45eb7db277be">
-        <source>The module transplanted successfully to the hook.</source>
-        <target>The module transplanted successfully to the hook.</target>
-        <note>Context:
-File: classes/controller/AdminController.php:456</note>
-      </trans-unit>
-      <trans-unit id="80e868e8d753c3ec4066aab283e66cbc">
-        <source>The module was successfully removed from the hook.</source>
-        <target>The module was successfully removed from the hook.</target>
-        <note>Context:
-File: classes/controller/AdminController.php:457</note>
-      </trans-unit>
-      <trans-unit id="7f31b58c32d9112f9bb160a481f6a911">
-        <source>Module reset successfully.</source>
-        <target>Module reset successfully.</target>
-        <note>Context:
-File: classes/controller/AdminController.php:461</note>
-      </trans-unit>
-      <trans-unit id="3270965aab0523dca0351cefc83e40b0">
-        <source>Module deleted successfully.</source>
-        <target>Module deleted successfully.</target>
-        <note>Context:
-File: classes/controller/AdminController.php:462</note>
+File: classes/controller/AdminController.php:455</note>
       </trans-unit>
       <trans-unit id="35a596598c0477aea67abfa33b053697">
         <source>Successfully signed in to PrestaShop Addons.</source>
         <target>Successfully signed in to PrestaShop Addons.</target>
         <note>Context:
-File: classes/controller/AdminController.php:472</note>
+File: classes/controller/AdminController.php:479</note>
       </trans-unit>
       <trans-unit id="cf28eac3f0fdd7e3d2d705282948f2b9">
         <source>Error found : %1$s in country_module_list.xml file.</source>
         <target>Error found : %1$s in country_module_list.xml file.</target>
         <note>Context:
-File: classes/controller/AdminController.php:2199</note>
+File: classes/controller/AdminController.php:2206</note>
       </trans-unit>
       <trans-unit id="ce7d2844bfe39db351171add1d7348cd">
         <source>Error found : %1$s in must_have_module_list.xml file.</source>
         <target>Error found : %1$s in must_have_module_list.xml file.</target>
         <note>Context:
-File: classes/controller/AdminController.php:2216</note>
+File: classes/controller/AdminController.php:2223</note>
       </trans-unit>
     </body>
   </file>
-  <file original="classes/module/ModuleGraph.php" source-language="en-US" target-language="en" datatype="plaintext">
+  <file original="modules/autoupgrade/AdminSelfTab.php" source-language="en-US" target-language="en" datatype="plaintext">
     <body>
-      <trans-unit id="cb20447a4bf5ff9bec717ec68a357a93">
-        <source>No graph engine selected</source>
-        <target>No graph engine selected</target>
+      <trans-unit id="6832d3339f3238558d9e290f4ff36bb8">
+        <source>Module(s) installed successfully.</source>
+        <target>Module(s) installed successfully.</target>
         <note>Context:
-File: classes/module/ModuleGraph.php:279</note>
+File: modules/autoupgrade/AdminSelfTab.php:180</note>
       </trans-unit>
-      <trans-unit id="a78ac92432df02a17a667fdc15764454">
-        <source>Graph engine selected is unavailable.</source>
-        <target>Graph engine selected is unavailable.</target>
+      <trans-unit id="0be078b247fde4986e320cd2684e7ab9">
+        <source>Module(s) uninstalled successfully.</source>
+        <target>Module(s) uninstalled successfully.</target>
         <note>Context:
-File: classes/module/ModuleGraph.php:285</note>
+File: modules/autoupgrade/AdminSelfTab.php:181</note>
       </trans-unit>
-    </body>
-  </file>
-  <file original="classes/module/ModuleGrid.php" source-language="en-US" target-language="en" datatype="plaintext">
-    <body>
-      <trans-unit id="ccacacd12f75e1ab3f9ce3e234ed5777">
-        <source>No grid engine selected</source>
-        <target>No grid engine selected</target>
+      <trans-unit id="980b6caee06822f8c5df45eb7db277be">
+        <source>The module transplanted successfully to the hook.</source>
+        <target>The module transplanted successfully to the hook.</target>
         <note>Context:
-File: classes/module/ModuleGrid.php:100</note>
+File: modules/autoupgrade/AdminSelfTab.php:182</note>
       </trans-unit>
-      <trans-unit id="b7be351a5a41ea3d022dc18f5f16239a">
-        <source>Grid engine selected is unavailable.</source>
-        <target>Grid engine selected is unavailable.</target>
+      <trans-unit id="80e868e8d753c3ec4066aab283e66cbc">
+        <source>The module was successfully removed from the hook.</source>
+        <target>The module was successfully removed from the hook.</target>
         <note>Context:
-File: classes/module/ModuleGrid.php:106</note>
+File: modules/autoupgrade/AdminSelfTab.php:183</note>
+      </trans-unit>
+      <trans-unit id="7f31b58c32d9112f9bb160a481f6a911">
+        <source>Module reset successfully.</source>
+        <target>Module reset successfully.</target>
+        <note>Context:
+File: modules/autoupgrade/AdminSelfTab.php:185</note>
+      </trans-unit>
+      <trans-unit id="3270965aab0523dca0351cefc83e40b0">
+        <source>Module deleted successfully.</source>
+        <target>Module deleted successfully.</target>
+        <note>Context:
+File: modules/autoupgrade/AdminSelfTab.php:185</note>
       </trans-unit>
     </body>
   </file>
@@ -664,6 +258,202 @@ File: classes/module/Module.php:2904</note>
       </trans-unit>
     </body>
   </file>
+  <file original="classes/module/ModuleGraph.php" source-language="en-US" target-language="en" datatype="plaintext">
+    <body>
+      <trans-unit id="cb20447a4bf5ff9bec717ec68a357a93">
+        <source>No graph engine selected</source>
+        <target>No graph engine selected</target>
+        <note>Context:
+File: classes/module/ModuleGraph.php:279</note>
+      </trans-unit>
+      <trans-unit id="a78ac92432df02a17a667fdc15764454">
+        <source>Graph engine selected is unavailable.</source>
+        <target>Graph engine selected is unavailable.</target>
+        <note>Context:
+File: classes/module/ModuleGraph.php:285</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="classes/module/ModuleGrid.php" source-language="en-US" target-language="en" datatype="plaintext">
+    <body>
+      <trans-unit id="ccacacd12f75e1ab3f9ce3e234ed5777">
+        <source>No grid engine selected</source>
+        <target>No grid engine selected</target>
+        <note>Context:
+File: classes/module/ModuleGrid.php:100</note>
+      </trans-unit>
+      <trans-unit id="b7be351a5a41ea3d022dc18f5f16239a">
+        <source>Grid engine selected is unavailable.</source>
+        <target>Grid engine selected is unavailable.</target>
+        <note>Context:
+File: classes/module/ModuleGrid.php:106</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="classes/Validate.php" source-language="en-US" target-language="en" datatype="plaintext">
+    <body>
+      <trans-unit id="f996dce5bdfb1b1094e41cf996c5fdae">
+        <source>Please specify module URL</source>
+        <target>Please specify module URL</target>
+        <note>Context:
+File: classes/Validate.php:63</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="controllers/admin/AdminModulesController.php" source-language="en-US" target-language="en" datatype="plaintext">
+    <body>
+      <trans-unit id="8095c31813f8e77d292bf6bec964169b">
+        <source>Unknown archive type.</source>
+        <target>Unknown archive type.</target>
+        <note>Context:
+File: controllers/admin/AdminModulesController.php:604</note>
+      </trans-unit>
+      <trans-unit id="723aac54d8b88c84ca0c9328f3912bf9">
+        <source>There was an error while extracting the module (file may be corrupted).</source>
+        <target>There was an error while extracting the module (file may be corrupted).</target>
+        <note>Context:
+File: controllers/admin/AdminModulesController.php:428</note>
+      </trans-unit>
+      <trans-unit id="2d2c4b710382f05c8cb697187f381f7c">
+        <source>The module %1$s that you uploaded is not a valid module.</source>
+        <target>The module %1$s that you uploaded is not a valid module.</target>
+        <note>Context:
+File: controllers/admin/AdminModulesController.php:433</note>
+      </trans-unit>
+      <trans-unit id="c09b8da183ec54308a4c59ab1f1ab792">
+        <source>You do not have the permission to use this module.</source>
+        <target>You do not have the permission to use this module.</target>
+        <note>Context:
+File: controllers/admin/AdminModulesController.php:688</note>
+      </trans-unit>
+      <trans-unit id="7cbb3ce25a6d0abd528dbd744da03e7f">
+        <source>Cannot reset this module.</source>
+        <target>Cannot reset this module.</target>
+        <note>Context:
+File: controllers/admin/AdminModulesController.php:540</note>
+      </trans-unit>
+      <trans-unit id="d765d45adba914dc9006cc7ec0b2faf5">
+        <source>Cannot install this module.</source>
+        <target>Cannot install this module.</target>
+        <note>Context:
+File: controllers/admin/AdminModulesController.php:547</note>
+      </trans-unit>
+      <trans-unit id="f973e6a744c0c50d212b7fd1430153f7">
+        <source>Cannot uninstall this module.</source>
+        <target>Cannot uninstall this module.</target>
+        <note>Context:
+File: controllers/admin/AdminModulesController.php:550</note>
+      </trans-unit>
+      <trans-unit id="08da26423466f4cadc0fd6e201711dcd">
+        <source>Cannot load the module's object.</source>
+        <target>Cannot load the module's object.</target>
+        <note>Context:
+File: controllers/admin/AdminModulesController.php:669</note>
+      </trans-unit>
+      <trans-unit id="8969f3823d6bbf4cff9ea8118d8b3ecb">
+        <source>An error occurred while copying the archive to the module directory.</source>
+        <target>An error occurred while copying the archive to the module directory.</target>
+        <note>Context:
+File: controllers/admin/AdminModulesController.php:606</note>
+      </trans-unit>
+      <trans-unit id="4654007119386a8ace934133208feed5">
+        <source>Sorry, the module cannot be deleted. Please check if you have the right permissions on this folder.</source>
+        <target>Sorry, the module cannot be deleted. Please check if you have the right permissions on this folder.</target>
+        <note>Context:
+File: controllers/admin/AdminModulesController.php:702</note>
+      </trans-unit>
+      <trans-unit id="8875d822d9402acb528eb9c55401a573">
+        <source>You need to be logged in to your PrestaShop Addons account in order to update the %s module. %s</source>
+        <target>You need to be logged in to your PrestaShop Addons account in order to update the %s module. %s</target>
+        <note>Context:
+File: controllers/admin/AdminModulesController.php:807</note>
+      </trans-unit>
+      <trans-unit id="af67db57c79006fd9464c65865f36a44">
+        <source>Module %s cannot be upgraded: Error while downloading the latest version.</source>
+        <target>Module %s cannot be upgraded: Error while downloading the latest version.</target>
+        <note>Context:
+File: controllers/admin/AdminModulesController.php:834</note>
+      </trans-unit>
+      <trans-unit id="e6148a0bace3c593e161009060a7da99">
+        <source>Module %s cannot be upgraded: Error while extracting the latest version.</source>
+        <target>Module %s cannot be upgraded: Error while extracting the latest version.</target>
+        <note>Context:
+File: controllers/admin/AdminModulesController.php:836</note>
+      </trans-unit>
+      <trans-unit id="408e2019e00a54bbaace8e6ea29a736b">
+        <source>You do not have the rights to update the %s module. Please make sure you are logged in to the PrestaShop Addons account that purchased the module.</source>
+        <target>You do not have the rights to update the %s module. Please make sure you are logged in to the PrestaShop Addons account that purchased the module.</target>
+        <note>Context:
+File: controllers/admin/AdminModulesController.php:842</note>
+      </trans-unit>
+      <trans-unit id="811c568a06f4f5f038609a98512e9416">
+        <source>You do not have permission to access this module.</source>
+        <target>You do not have permission to access this module.</target>
+        <note>Context:
+File: controllers/admin/AdminModulesController.php:862</note>
+      </trans-unit>
+      <trans-unit id="81d2521b93f4b3abdc3877f76e04005a">
+        <source>You do not have permission to install this module.</source>
+        <target>You do not have permission to install this module.</target>
+        <note>Context:
+File: controllers/admin/AdminModulesController.php:866</note>
+      </trans-unit>
+      <trans-unit id="d7569980257d11fbd66deb501f5efab8">
+        <source>You do not have permission to delete this module.</source>
+        <target>You do not have permission to delete this module.</target>
+        <note>Context:
+File: controllers/admin/AdminModulesController.php:868</note>
+      </trans-unit>
+      <trans-unit id="5a69d1cb0ef4096b272b3b441555d737">
+        <source>You do not have permission to configure this module.</source>
+        <target>You do not have permission to configure this module.</target>
+        <note>Context:
+File: controllers/admin/AdminModulesController.php:870</note>
+      </trans-unit>
+      <trans-unit id="2c465b2a1769653563dcacfc83ab61d0">
+        <source>This module is already installed: %s.</source>
+        <target>This module is already installed: %s.</target>
+        <note>Context:
+File: controllers/admin/AdminModulesController.php:872</note>
+      </trans-unit>
+      <trans-unit id="0ec73cc5b2910764fc221acb633c20bc">
+        <source>This module has already been uninstalled: %s.</source>
+        <target>This module has already been uninstalled: %s.</target>
+        <note>Context:
+File: controllers/admin/AdminModulesController.php:874</note>
+      </trans-unit>
+      <trans-unit id="ee043fd10baac04e50a4256d7406e93c">
+        <source>This module needs to be installed in order to be updated: %s.</source>
+        <target>This module needs to be installed in order to be updated: %s.</target>
+        <note>Context:
+File: controllers/admin/AdminModulesController.php:876</note>
+      </trans-unit>
+      <trans-unit id="4e03a50f18350f93b8ec321b488a4a8c">
+        <source>You do not have permission to uninstall this module.</source>
+        <target>You do not have permission to uninstall this module.</target>
+        <note>Context:
+File: controllers/admin/AdminModulesController.php:900</note>
+      </trans-unit>
+      <trans-unit id="d3c1a921b833767f27ffcc401a87d93b">
+        <source>The following module(s) could not be uninstalled properly: %s.</source>
+        <target>The following module(s) could not be uninstalled properly: %s.</target>
+        <note>Context:
+File: controllers/admin/AdminModulesController.php:1037</note>
+      </trans-unit>
+      <trans-unit id="89bbb6a140e2fc5ff52b2211083a2721">
+        <source>The following module(s) could not be installed properly: %s.</source>
+        <target>The following module(s) could not be installed properly: %s.</target>
+        <note>Context:
+File: controllers/admin/AdminModulesController.php:1039</note>
+      </trans-unit>
+      <trans-unit id="3987153b2cf88c9476ba9dc8d1de52bc">
+        <source>The following module(s) were not upgraded successfully: %s.</source>
+        <target>The following module(s) were not upgraded successfully: %s.</target>
+        <note>Context:
+File: controllers/admin/AdminModulesController.php:1624</note>
+      </trans-unit>
+    </body>
+  </file>
   <file original="controllers/admin/AdminModulesPositionsController.php" source-language="en-US" target-language="en" datatype="plaintext">
     <body>
       <trans-unit id="1c1824ce21df05df8689641c516c9d75">
@@ -707,6 +497,240 @@ File: controllers/admin/AdminModulesPositionsController.php:218</note>
         <target>Please select a module to unhook.</target>
         <note>Context:
 File: controllers/admin/AdminModulesPositionsController.php:204</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="src/Adapter/Module/ModuleDataProvider.php" source-language="en-US" target-language="en" datatype="plaintext">
+    <body>
+      <trans-unit id="429cc2fb9f1cb16782b0af5ba748096d">
+        <source>Parse error detected in main class of module %module%!</source>
+        <target>Parse error detected in main class of module %module%!</target>
+        <note>Context:
+File: src/Adapter/Module/ModuleDataProvider.php:183</note>
+      </trans-unit>
+      <trans-unit id="e03545a6c414502e72d232b4c30d9fdd">
+        <source>Error while loading file of module %module%. %error_message%</source>
+        <target>Error while loading file of module %module%. %error_message%</target>
+        <note>Context:
+File: src/Adapter/Module/ModuleDataProvider.php:201</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="src/Adapter/Module/ModuleZipManager.php" source-language="en-US" target-language="en" datatype="plaintext">
+    <body>
+      <trans-unit id="08859ef1a837ae429ff2e4decc952cbe">
+        <source>Unable to find uploaded module at the following path: %file%</source>
+        <target>Unable to find uploaded module at the following path: %file%</target>
+        <note>Context:
+File: src/Adapter/Module/ModuleZipManager.php:82</note>
+      </trans-unit>
+      <trans-unit id="848578a1a363f2c2443b3989154bf646">
+        <source>Cannot extract module in %path% to get its name. %error%</source>
+        <target>Cannot extract module in %path% to get its name. %error%</target>
+        <note>Context:
+File: src/Adapter/Module/ModuleZipManager.php:92</note>
+      </trans-unit>
+      <trans-unit id="a85499f3d020141df9b6203b7585a9bf">
+        <source>This file does not seem to be a valid module zip</source>
+        <target>This file does not seem to be a valid module zip</target>
+        <note>Context:
+File: src/Adapter/Module/ModuleZipManager.php:129</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="src/Adapter/Module/Tab/ModuleTabRegister.php" source-language="en-US" target-language="en" datatype="plaintext">
+    <body>
+      <trans-unit id="ee34aeaa570c9f1c206b8401d6eaa58d">
+        <source>Failed to install admin tab "%name%".</source>
+        <target>Failed to install admin tab "%name%".</target>
+        <note>Context:
+File: src/Adapter/Module/Tab/ModuleTabRegister.php:261</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="src/Adapter/Module/Tab/ModuleTabUnregister.php" source-language="en-US" target-language="en" datatype="plaintext">
+    <body>
+      <trans-unit id="e85403d2e654955b45105b9929924c89">
+        <source>Failed to uninstall admin tab "%name%".</source>
+        <target>Failed to uninstall admin tab "%name%".</target>
+        <note>Context:
+File: src/Adapter/Module/Tab/ModuleTabUnregister.php:98</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="src/Core/Addon/Module/ModuleManager.php" source-language="en-US" target-language="en" datatype="plaintext">
+    <body>
+      <trans-unit id="f2715f72988009e4f50e94d88b3df89f">
+        <source>You are not allowed to install modules.</source>
+        <target>You are not allowed to install modules.</target>
+        <note>Context:
+File: src/Core/Addon/Module/ModuleManager.php:221</note>
+      </trans-unit>
+      <trans-unit id="69ae13c289241714dfa0bd4e2f5bbcca">
+        <source>You are not allowed to uninstall this module.</source>
+        <target>You are not allowed to uninstall this module.</target>
+        <note>Context:
+File: src/Core/Addon/Module/ModuleManager.php:268</note>
+      </trans-unit>
+      <trans-unit id="1a263755e673bdbfc6ec6739a32e2fac">
+        <source>You are not allowed to upgrade this module.</source>
+        <target>You are not allowed to upgrade this module.</target>
+        <note>Context:
+File: src/Core/Addon/Module/ModuleManager.php:306</note>
+      </trans-unit>
+      <trans-unit id="83a812de8784135990c57d25d0f9b34b">
+        <source>The module %module% must be installed first</source>
+        <target>The module %module% must be installed first</target>
+        <note>Context:
+File: src/Core/Addon/Module/ModuleManager.php:314</note>
+      </trans-unit>
+      <trans-unit id="ceb04ec3e143ec849005533a507b81b7">
+        <source>You are not allowed to disable this module.</source>
+        <target>You are not allowed to disable this module.</target>
+        <note>Context:
+File: src/Core/Addon/Module/ModuleManager.php:351</note>
+      </trans-unit>
+      <trans-unit id="b58f4b4f4f870b40e52c42c161df0d60">
+        <source>Error when disabling module %module%. %error_details%.</source>
+        <target>Error when disabling module %module%. %error_details%.</target>
+        <note>Context:
+File: src/Core/Addon/Module/ModuleManager.php:362</note>
+      </trans-unit>
+      <trans-unit id="a2825f14a9e0bf0b004b2a255317d6dd">
+        <source>You are not allowed to enable this module.</source>
+        <target>You are not allowed to enable this module.</target>
+        <note>Context:
+File: src/Core/Addon/Module/ModuleManager.php:387</note>
+      </trans-unit>
+      <trans-unit id="fbaf1c9434442c780f3eddff4406603c">
+        <source>Error when enabling module %module%. %error_details%.</source>
+        <target>Error when enabling module %module%. %error_details%.</target>
+        <note>Context:
+File: src/Core/Addon/Module/ModuleManager.php:398</note>
+      </trans-unit>
+      <trans-unit id="974a1527e3b406ebb7c772ddd2a7aa41">
+        <source>You are not allowed to disable this module on mobile.</source>
+        <target>You are not allowed to disable this module on mobile.</target>
+        <note>Context:
+File: src/Core/Addon/Module/ModuleManager.php:422</note>
+      </trans-unit>
+      <trans-unit id="976dc5c6fc2fe73b2c43c7776847e593">
+        <source>Error when disabling module %module% on mobile. %error_details%</source>
+        <target>Error when disabling module %module% on mobile. %error_details%</target>
+        <note>Context:
+File: src/Core/Addon/Module/ModuleManager.php:433</note>
+      </trans-unit>
+      <trans-unit id="8459337c91608e117589881cc560b0e6">
+        <source>You are not allowed to enable this module on mobile.</source>
+        <target>You are not allowed to enable this module on mobile.</target>
+        <note>Context:
+File: src/Core/Addon/Module/ModuleManager.php:456</note>
+      </trans-unit>
+      <trans-unit id="416bc5074d9b9944a51797b081492442">
+        <source>Error when enabling module %module% on mobile. %error_details%</source>
+        <target>Error when enabling module %module% on mobile. %error_details%</target>
+        <note>Context:
+File: src/Core/Addon/Module/ModuleManager.php:467</note>
+      </trans-unit>
+      <trans-unit id="a608a854a4091bd1f92cff310ba09b25">
+        <source>You are not allowed to reset this module.</source>
+        <target>You are not allowed to reset this module.</target>
+        <note>Context:
+File: src/Core/Addon/Module/ModuleManager.php:488</note>
+      </trans-unit>
+      <trans-unit id="387aeee114093679248f936ba36ee416">
+        <source>Error when resetting module %module%. %error_details%</source>
+        <target>Error when resetting module %module%. %error_details%</target>
+        <note>Context:
+File: src/Core/Addon/Module/ModuleManager.php:503</note>
+      </trans-unit>
+      <trans-unit id="c913de38eb118ce08ddae76f27063126">
+        <source>Unfortunately, the module did not return additional details.</source>
+        <target>Unfortunately, the module did not return additional details.</target>
+        <note>Context:
+File: src/Core/Addon/Module/ModuleManager.php:564</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="src/Core/Addon/Module/ModuleRepository.php" source-language="en-US" target-language="en" datatype="plaintext">
+    <body>
+      <trans-unit id="a3214c22fd9d21c988d9bb06748d6d9f">
+        <source>Parse error on module %module%. %error_details%</source>
+        <target>Parse error on module %module%. %error_details%</target>
+        <note>Context:
+File: src/Core/Addon/Module/ModuleRepository.php:339</note>
+      </trans-unit>
+      <trans-unit id="bcc1e7daae2727b6d7a32567086cd84f">
+        <source>Unexpected exception on module %module%. %error_details%</source>
+        <target>Unexpected exception on module %module%. %error_details%</target>
+        <note>Context:
+File: src/Core/Addon/Module/ModuleRepository.php:347</note>
+      </trans-unit>
+      <trans-unit id="9fcc3446d55e632b5f3ca13fc810c83b">
+        <source>Loading data from Addons failed. %error_details%</source>
+        <target>Loading data from Addons failed. %error_details%</target>
+        <note>Context:
+File: src/Core/Addon/Module/ModuleRepository.php:389</note>
+      </trans-unit>
+      <trans-unit id="0554e4a4ddb313c3962088dc32647e90">
+        <source>Parse error detected in module %module%. %error_details%.</source>
+        <target>Parse error detected in module %module%. %error_details%.</target>
+        <note>Context:
+File: src/Core/Addon/Module/ModuleRepository.php:509</note>
+      </trans-unit>
+      <trans-unit id="40e7db035e09d8f198b96a7d5d9e821f">
+        <source>Exception detected while loading module %module%. %error_details%.</source>
+        <target>Exception detected while loading module %module%. %error_details%.</target>
+        <note>Context:
+File: src/Core/Addon/Module/ModuleRepository.php:517</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="src/PrestaShopBundle/Controller/Admin/ModuleController.php" source-language="en-US" target-language="en" datatype="plaintext">
+    <body>
+      <trans-unit id="89d371deca1b2b50a933fabc8005ccfb">
+        <source>%module% did not return a valid response on installation.</source>
+        <target>%module% did not return a valid response on installation.</target>
+        <note>Context:
+File: src/PrestaShopBundle/Controller/Admin/ModuleController.php:607</note>
+      </trans-unit>
+      <trans-unit id="35e839bc1864dd50a75500028c3ebb33">
+        <source>Installation of module %module% was successful.</source>
+        <target>Installation of module %module% was successful.</target>
+        <note>Context:
+File: src/PrestaShopBundle/Controller/Admin/ModuleController.php:612</note>
+      </trans-unit>
+      <trans-unit id="f52c6f7b6fcbd586aee22044aeb6c897">
+        <source>Installation of module %module% failed. %error%</source>
+        <target>Installation of module %module% failed. %error%</target>
+        <note>Context:
+File: src/PrestaShopBundle/Controller/Admin/ModuleController.php:619</note>
+      </trans-unit>
+      <trans-unit id="fc7da9518fbe20ebcaccbf5f8fd0e7df">
+        <source>Synchronized with Addons marketplace!</source>
+        <target>Synchronized with Addons marketplace!</target>
+        <note>Context:
+File: src/PrestaShopBundle/Controller/Admin/ModuleController.php:744</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="src/PrestaShopBundle/Resources/views/Admin/Module/Includes/card_notification_update.html.twig" source-language="en-US" target-language="en" datatype="plaintext">
+    <body>
+      <trans-unit id="fca2f02b01daced572256506d1054f4a">
+        <source>No changelog provided</source>
+        <target>No changelog provided</target>
+        <note>Context:
+File: src/PrestaShopBundle/Resources/views/Admin/Module/Includes/card_notification_update.html.twig:47</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="src/PrestaShopBundle/Resources/views/Admin/Module/Includes/modal_addons_connect.html.twig" source-language="en-US" target-language="en" datatype="plaintext">
+    <body>
+      <trans-unit id="df776a9024ce6c10ec1d1d763cee0301">
+        <source>You are about to log out your Addons account. You might miss important updates of Addons you've bought.</source>
+        <target>You are about to log out your Addons account. You might miss important updates of Addons you've bought.</target>
+        <note>Context:
+File: src/PrestaShopBundle/Resources/views/Admin/Module/Includes/modal_addons_connect.html.twig:90</note>
       </trans-unit>
     </body>
   </file>
@@ -756,34 +780,6 @@ File: src/PrestaShopBundle/Resources/views/Admin/Module/Includes/modal_confirm.h
       </trans-unit>
     </body>
   </file>
-  <file original="src/PrestaShopBundle/Resources/views/Admin/Module/Includes/modal_import.html.twig" source-language="en-US" target-language="en" datatype="plaintext">
-    <body>
-      <trans-unit id="c3dbf8925ec4c77ef5317e1e27317b70">
-        <source>Installing module...</source>
-        <target>Installing module...</target>
-        <note>Context:
-File: src/PrestaShopBundle/Resources/views/Admin/Module/Includes/modal_import.html.twig:50</note>
-      </trans-unit>
-      <trans-unit id="a26f56145fea2d3af35bf0d6ac83c28a">
-        <source>It will close as soon as the module is installed. It won't be long!</source>
-        <target>It will close as soon as the module is installed. It won't be long!</target>
-        <note>Context:
-File: src/PrestaShopBundle/Resources/views/Admin/Module/Includes/modal_import.html.twig:52</note>
-      </trans-unit>
-      <trans-unit id="f48a5ae14fa2b0c85442d1199a08b3b4">
-        <source>Module installed!</source>
-        <target>Module installed!</target>
-        <note>Context:
-File: src/PrestaShopBundle/Resources/views/Admin/Module/Includes/modal_import.html.twig:57</note>
-      </trans-unit>
-      <trans-unit id="824e2fcb263ee94399a6a261ee1ec7c1">
-        <source>Oops... Upload failed.</source>
-        <target>Oops... Upload failed.</target>
-        <note>Context:
-File: src/PrestaShopBundle/Resources/views/Admin/Module/Includes/modal_import.html.twig:63</note>
-      </trans-unit>
-    </body>
-  </file>
   <file original="src/PrestaShopBundle/Resources/views/Admin/Module/Includes/modal_confirm_bulk_action.html.twig" source-language="en-US" target-language="en" datatype="plaintext">
     <body>
       <trans-unit id="a7f0cf21776c1a6ed951c58620b4507a">
@@ -791,6 +787,34 @@ File: src/PrestaShopBundle/Resources/views/Admin/Module/Includes/modal_import.ht
         <target>You are about to [1] the following modules:</target>
         <note>Context:
 File: src/PrestaShopBundle/Resources/views/Admin/Module/Includes/modal_confirm_bulk_action.html.twig:37</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="src/PrestaShopBundle/Resources/views/Admin/Module/Includes/modal_import.html.twig" source-language="en-US" target-language="en" datatype="plaintext">
+    <body>
+      <trans-unit id="c3dbf8925ec4c77ef5317e1e27317b70">
+        <source>Installing module...</source>
+        <target>Installing module...</target>
+        <note>Context:
+File: src/PrestaShopBundle/Resources/views/Admin/Module/Includes/modal_import.html.twig:61</note>
+      </trans-unit>
+      <trans-unit id="a26f56145fea2d3af35bf0d6ac83c28a">
+        <source>It will close as soon as the module is installed. It won't be long!</source>
+        <target>It will close as soon as the module is installed. It won't be long!</target>
+        <note>Context:
+File: src/PrestaShopBundle/Resources/views/Admin/Module/Includes/modal_import.html.twig:63</note>
+      </trans-unit>
+      <trans-unit id="f48a5ae14fa2b0c85442d1199a08b3b4">
+        <source>Module installed!</source>
+        <target>Module installed!</target>
+        <note>Context:
+File: src/PrestaShopBundle/Resources/views/Admin/Module/Includes/modal_import.html.twig:68</note>
+      </trans-unit>
+      <trans-unit id="824e2fcb263ee94399a6a261ee1ec7c1">
+        <source>Oops... Upload failed.</source>
+        <target>Oops... Upload failed.</target>
+        <note>Context:
+File: src/PrestaShopBundle/Resources/views/Admin/Module/Includes/modal_import.html.twig:74</note>
       </trans-unit>
     </body>
   </file>
@@ -834,45 +858,25 @@ File: src/PrestaShopBundle/Resources/views/Admin/Module/Includes/modal_read_more
       </trans-unit>
     </body>
   </file>
-  <file original="src/PrestaShopBundle/Resources/views/Admin/Module/Includes/card_notification_update.html.twig" source-language="en-US" target-language="en" datatype="plaintext">
-    <body>
-      <trans-unit id="fca2f02b01daced572256506d1054f4a">
-        <source>No changelog provided</source>
-        <target>No changelog provided</target>
-        <note>Context:
-File: src/PrestaShopBundle/Resources/views/Admin/Module/Includes/card_notification_update.html.twig:47</note>
-      </trans-unit>
-    </body>
-  </file>
-  <file original="src/PrestaShopBundle/Resources/views/Admin/Module/Includes/modal_addons_connect.html.twig" source-language="en-US" target-language="en" datatype="plaintext">
-    <body>
-      <trans-unit id="df776a9024ce6c10ec1d1d763cee0301">
-        <source>You are about to log out your Addons account. You might miss important updates of Addons you've bought.</source>
-        <target>You are about to log out your Addons account. You might miss important updates of Addons you've bought.</target>
-        <note>Context:
-File: src/PrestaShopBundle/Resources/views/Admin/Module/Includes/modal_addons_connect.html.twig:78</note>
-      </trans-unit>
-    </body>
-  </file>
   <file original="src/PrestaShopBundle/Resources/views/Admin/Module/manage.html.twig" source-language="en-US" target-language="en" datatype="plaintext">
     <body>
       <trans-unit id="634ec4fb81df959627996a95fa0e799c">
         <source>You need to select at least one module to use the bulk action.</source>
         <target>You need to select at least one module to use the bulk action.</target>
         <note>Context:
-File: src/PrestaShopBundle/Resources/views/Admin/Module/manage.html.twig:113</note>
+File: src/PrestaShopBundle/Resources/views/Admin/Module/manage.html.twig:115</note>
       </trans-unit>
       <trans-unit id="09f9472ec012d502e9cc3ab0e31c24e8">
         <source>The action "[1]" is not available, impossible to perform your request.</source>
         <target>The action "[1]" is not available, impossible to perform your request.</target>
         <note>Context:
-File: src/PrestaShopBundle/Resources/views/Admin/Module/manage.html.twig:114</note>
+File: src/PrestaShopBundle/Resources/views/Admin/Module/manage.html.twig:116</note>
       </trans-unit>
       <trans-unit id="6e37e943fed80ec5f0629bbea4c81e1a">
         <source>The action [1] is not available for module [2]. Skipped.</source>
         <target>The action [1] is not available for module [2]. Skipped.</target>
         <note>Context:
-File: src/PrestaShopBundle/Resources/views/Admin/Module/manage.html.twig:115</note>
+File: src/PrestaShopBundle/Resources/views/Admin/Module/manage.html.twig:117</note>
       </trans-unit>
     </body>
   </file>

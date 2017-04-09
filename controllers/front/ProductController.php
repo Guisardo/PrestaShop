@@ -40,6 +40,8 @@ class ProductControllerCore extends ProductPresentingFrontControllerCore
     /** @var Category */
     protected $category;
 
+    protected $redirectionExtraExcludedKeys = ['id_product_attribute', 'rewrite'];
+
     /**
      * @var array
      */
@@ -50,8 +52,14 @@ class ProductControllerCore extends ProductPresentingFrontControllerCore
 
     public function canonicalRedirection($canonical_url = '')
     {
-        $id_product_attribute = Tools::getValue('id_product_attribute');
         if (Validate::isLoadedObject($this->product)) {
+            if (!$this->product->hasCombinations()) {
+                unset($_GET['id_product_attribute']);
+            } else if (!Tools::getValue('id_product_attribute') || Tools::getValue('rewrite') !== $this->product->link_rewrite) {
+                $_GET['id_product_attribute'] = Product::getDefaultAttribute($this->product->id);
+            }
+
+            $id_product_attribute = $this->getIdProductAttribute();
             parent::canonicalRedirection($this->context->link->getProductLink(
                 $this->product,
                 null,
@@ -594,7 +602,7 @@ class ProductControllerCore extends ProductPresentingFrontControllerCore
                     }
                 }
             }
-            
+
             // wash attributes list depending on available attributes depending on selected preceding attributes
             $current_selected_attributes = array();
             $count = 0;
@@ -887,6 +895,28 @@ class ProductControllerCore extends ProductPresentingFrontControllerCore
         return $this->category;
     }
 
+    private function getIdProductAttribute()
+    {
+        $requestedIdProductAttribute = (int)Tools::getValue('id_product_attribute');
+
+        if (!Configuration::get('PS_DISP_UNAVAILABLE_ATTR')) {
+            $productAttributes = array_filter(
+                $this->product->getAttributeCombinations(),
+                function ($elem) {
+                    return $elem['quantity'] > 0;
+                });
+            $productAttribute = array_filter(
+                $productAttributes,
+                function ($elem) use ($requestedIdProductAttribute) {
+                    return $elem['id_product_attribute'] == $requestedIdProductAttribute;
+                });
+            if (empty($productAttribute) && !empty($productAttributes)) {
+                return (int)array_shift($productAttributes)['id_product_attribute'];
+            }
+        }
+        return $requestedIdProductAttribute;
+    }
+
     public function getTemplateVarProduct()
     {
         $productSettings = $this->getProductPresentationSettings();
@@ -897,7 +927,7 @@ class ProductControllerCore extends ProductPresentingFrontControllerCore
         $product['id_product'] = (int) $this->product->id;
         $product['out_of_stock'] = (int) $this->product->out_of_stock;
         $product['new'] = (int) $this->product->new;
-        $product['id_product_attribute'] = (int) Tools::getValue('id_product_attribute');
+        $product['id_product_attribute'] = $this->getIdProductAttribute();
         $product['minimal_quantity'] = $this->getProductMinimalQuantity($product);
         $product['quantity_wanted'] = $this->getRequiredQuantity($product);
         $product['extraContent'] = $extraContentFinder->addParams(array('product' => $this->product))->present();

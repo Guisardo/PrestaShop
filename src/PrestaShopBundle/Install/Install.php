@@ -273,12 +273,12 @@ class Install extends AbstractInstall
      */
     public function generateSf2ProductionEnv()
     {
-        $sf2Refresh = new \PrestaShopBundle\Service\Cache\Refresh();
-        $sf2Refresh->addDoctrineSchemaUpdate();
-        $output = $sf2Refresh->execute();
+        $schemaUpgrade = new \PrestaShopBundle\Service\Database\Upgrade();
+        $schemaUpgrade->addDoctrineSchemaUpdate();
+        $output = $schemaUpgrade->execute();
 
-        if (0 !== $output['doctrine:schema:update']['exitCode']) {
-            $this->setError(explode("\n", $output['doctrine:schema:update']['output']));
+        if (0 !== $output['prestashop:schema:update-without-foreign']['exitCode']) {
+            $this->setError(explode("\n", $output['prestashop:schema:update-without-foreign']['output']));
             return false;
         }
 
@@ -516,7 +516,7 @@ class Install extends AbstractInstall
             // Copy language flag
             if (is_writable(_PS_IMG_DIR_.'l/')) {
                 if (!copy(_PS_INSTALL_LANGS_PATH_.$iso.'/flag.jpg', _PS_IMG_DIR_.'l/'.$id_lang.'.jpg')) {
-                    throw new PrestashopInstallerException($this->translator->trans('Cannot copy flag language "%flag%"', array('%flag%' => _PS_INSTALL_LANGS_PATH_.$iso.'/flag.jpg => '._PS_IMG_DIR_.'l/'.$id_lang.'.jpg')));
+                    throw new PrestashopInstallerException($this->translator->trans('Cannot copy flag language "%flag%"', array('%flag%' => _PS_INSTALL_LANGS_PATH_.$iso.'/flag.jpg => '._PS_IMG_DIR_.'l/'.$id_lang.'.jpg'), 'Install'));
                 }
             }
         }

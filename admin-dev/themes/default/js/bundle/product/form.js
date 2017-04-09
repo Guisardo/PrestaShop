@@ -407,12 +407,12 @@ var featuresCollection = (function() {
             success: function(response) {
               $selector.prop('disabled', response.length === 0);
               $selector.empty();
-              $.each(response, function(key, val) {
+              $.each(response, function(index, elt) {
                 // the placeholder shouldn't be posted.
-                if ('0' == key) {
-                  key = '';
+                if ('0' == elt.id) {
+                  elt.id = '';
                 }
-                $selector.append($('<option></option>').attr('value', key).text(val));
+                $selector.append($('<option></option>').attr('value', elt.id).text(elt.value));
               });
             }
           });
@@ -2043,7 +2043,9 @@ var seo = (function() {
 var tags = (function() {
   return {
     'init': function() {
-      $('#form_step6_tags .tokenfield').tokenfield();
+      $('#form_step6_tags .tokenfield').tokenfield({
+        minWidth: '768px'
+      });
     }
   };
 })();

@@ -39,7 +39,6 @@ class AttributeLang
 {
     /**
      * @ORM\Id
-     * @ORM\Column(name="id_attribute", type="integer")
      * @ORM\ManyToOne(targetEntity="PrestaShopBundle\Entity\Attribute", inversedBy="attributeLangs")
      * @ORM\JoinColumn(name="id_attribute", referencedColumnName="id_attribute", nullable=false)
      */
@@ -68,7 +67,7 @@ class AttributeLang
      */
     public function getId()
     {
-        return $this->id;
+        return $this->attribute;
     }
 
     /**

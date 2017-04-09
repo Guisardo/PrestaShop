@@ -256,6 +256,14 @@ abstract class ModuleCore
             $this->ps_versions_compliancy['min'] .= '.0.0';
         }
 
+        if (strlen($this->ps_versions_compliancy['min']) == 5) {
+            $this->ps_versions_compliancy['min'] .= '.0';
+        }
+
+        if (strlen($this->ps_versions_compliancy['max']) == 5) {
+            $this->ps_versions_compliancy['max'] .= '.0';
+        }
+
         if (strlen($this->ps_versions_compliancy['max']) == 3) {
             $this->ps_versions_compliancy['max'] .= '.999.999';
         }
@@ -384,7 +392,7 @@ abstract class ModuleCore
                     FROM '._DB_PREFIX_.'access a
                     LEFT JOIN `'._DB_PREFIX_.'authorization_role` r
                     ON r.id_authorization_role = a.id_authorization_role
-                    WHERE r.slug = "ROLE_MOD_TAB_ADMINMODULES_'.$action.'"
+                    WHERE r.slug = "ROLE_MOD_TAB_ADMINMODULESSF_'.$action.'"
             )');
         }
 

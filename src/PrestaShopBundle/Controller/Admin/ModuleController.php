@@ -32,6 +32,7 @@ use PrestaShop\PrestaShop\Core\Addon\AddonListFilter;
 use PrestaShop\PrestaShop\Core\Addon\AddonListFilterStatus;
 use PrestaShop\PrestaShop\Core\Addon\AddonListFilterType;
 use PrestaShop\PrestaShop\Core\Addon\Module\ModuleRepository;
+use PrestaShopBundle\Security\Voter\PageVoter;
 use PrestaShopBundle\Entity\ModuleHistory;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -41,6 +42,8 @@ use PrestaShop\PrestaShop\Core\Addon\AddonListFilterOrigin;
 
 class ModuleController extends FrameworkBundleAdminController
 {
+    const controller_name = 'ADMINMODULESSF';
+
     /**
      * Controller responsible for displaying "Catalog" section of Module management pages.
      *
@@ -48,7 +51,26 @@ class ModuleController extends FrameworkBundleAdminController
      */
     public function catalogAction()
     {
+        if (
+            !in_array(
+                $this->authorizationLevel($this::controller_name),
+                array(
+                    PageVoter::LEVEL_READ,
+                    PageVoter::LEVEL_UPDATE,
+                    PageVoter::LEVEL_CREATE,
+                    PageVoter::LEVEL_DELETE,
+                )
+            )
+        ) {
+            return $this->redirect('admin_dashboard');
+        }
+
         $translator = $this->container->get('translator');
+        $errorMessage = $translator->trans(
+                'You do not have permission to add this.',
+                array(),
+                'Admin.Notifications.Error'
+            );
 
         return $this->render('PrestaShopBundle:Admin/Module:catalog.html.twig', array(
                 'layoutHeaderToolbarBtn' => $this->getToolbarButtons(),
@@ -59,6 +81,8 @@ class ModuleController extends FrameworkBundleAdminController
                 'enableSidebar' => true,
                 'help_link' => $this->generateSidebarLink('AdminModules'),
                 'requireFilterStatus' => false,
+                'level' => $this->authorizationLevel($this::controller_name),
+                'errorMessage' => $errorMessage,
             ));
     }
 
@@ -121,12 +145,21 @@ class ModuleController extends FrameworkBundleAdminController
             )
         )->getContent();
 
+        $translator = $this->container->get('translator');
+        $errorMessage = $translator->trans(
+            'You do not have permission to add this.',
+            array(),
+            'Admin.Notifications.Error'
+        );
+
         $formattedContent['content'] .= $this->render(
             'PrestaShopBundle:Admin/Module/Includes:grid.html.twig',
             array(
                 'modules' => $this->getPresentedProducts($modules),
                 'requireAddonsSearch' => true,
                 'id' => 'all',
+                'level' => $this->authorizationLevel($this::controller_name),
+                'errorMessage' => $errorMessage,
             )
         )->getContent();
 
@@ -205,6 +238,12 @@ class ModuleController extends FrameworkBundleAdminController
 
         $categoriesMenu = $this->get('prestashop.categories_provider')->getCategoriesMenu($installedProducts);
 
+        $errorMessage = $translator->trans(
+            'You do not have permission to add this.',
+            array(),
+            'Admin.Notifications.Error'
+        );
+
         return $this->render('PrestaShopBundle:Admin/Module:manage.html.twig', array(
                 'layoutHeaderToolbarBtn' => $this->getToolbarButtons(),
                 'layoutTitle' => $translator->trans('Manage installed modules', array(), 'Admin.Modules.Feature'),
@@ -215,11 +254,26 @@ class ModuleController extends FrameworkBundleAdminController
                 'enableSidebar' => true,
                 'help_link' => $this->generateSidebarLink('AdminModules'),
                 'requireFilterStatus' => true,
+                'level' => $this->authorizationLevel($this::controller_name),
+                'errorMessage' => $errorMessage,
             ));
     }
 
     public function moduleAction(Request $request)
     {
+        if (
+            !in_array(
+                $this->authorizationLevel($this::controller_name),
+                array(
+                    PageVoter::LEVEL_CREATE,
+                    PageVoter::LEVEL_UPDATE,
+                    PageVoter::LEVEL_DELETE,
+                )
+            )
+        ) {
+            return $this->redirect('admin_dashboard');
+        }
+
         $action = $request->get('action');
         $module = $request->get('module_name');
         $forceDeletion = $request->query->has('deletion');
@@ -300,6 +354,7 @@ class ModuleController extends FrameworkBundleAdminController
                 $moduleInstanceWithUrl = $modulesProvider->generateAddonsUrls(array($moduleInstance));
                 $response[$module]['action_menu_html'] = $this->render('PrestaShopBundle:Admin/Module/Includes:action_menu.html.twig', array(
                         'module' => $this->getPresentedProducts($moduleInstanceWithUrl)[0],
+                        'level' => $this->authorizationLevel($this::controller_name),
                     ))->getContent();
             }
 
@@ -347,6 +402,7 @@ class ModuleController extends FrameworkBundleAdminController
         };
 
         $moduleManager = $this->get('prestashop.module.manager');
+        $modules = $moduleManager->getModulesWithNotifications($modulesPresenter);
         $translator = $this->get('translator');
         $layoutTitle = $translator->trans(
             'Module notifications',
@@ -354,15 +410,23 @@ class ModuleController extends FrameworkBundleAdminController
             'Admin.Modules.Feature'
         );
 
+        $errorMessage = $translator->trans(
+            'You do not have permission to add this.',
+            array(),
+            'Admin.Notifications.Error'
+        );
+
         return $this->render('PrestaShopBundle:Admin/Module:notifications.html.twig', array(
             'enableSidebar' => true,
             'layoutHeaderToolbarBtn' => $this->getToolbarButtons(),
             'layoutTitle' => $layoutTitle,
             'help_link' => $this->generateSidebarLink('AdminModules'),
-            'modules' => $moduleManager->getModulesWithNotifications($modulesPresenter),
+            'modules' => $modules,
             'requireAddonsSearch' => false,
             'requireBulkActions' => false,
             'requireFilterStatus' => false,
+            'level' => $this->authorizationLevel($this::controller_name),
+            'errorMessage' => $errorMessage,
         ));
     }
 
@@ -381,20 +445,22 @@ class ModuleController extends FrameworkBundleAdminController
 
         $installed = $uninstalled = array();
 
-        foreach ($tabModulesList as $key => $value) {
-            $continue = 0;
-            foreach ($modulesListUnsorted['installed'] as $moduleInstalled) {
-                if ($moduleInstalled['attributes']['name'] == $value) {
-                    $continue = 1;
-                    $installed[] = $moduleInstalled;
+        if (!empty($tabModulesList)) {
+            foreach ($tabModulesList as $key => $value) {
+                $continue = 0;
+                foreach ($modulesListUnsorted['installed'] as $moduleInstalled) {
+                    if ($moduleInstalled['attributes']['name'] == $value) {
+                        $continue = 1;
+                        $installed[] = $moduleInstalled;
+                    }
                 }
-            }
-            if ($continue) {
-                continue;
-            }
-            foreach ($modulesListUnsorted['not_installed'] as $moduleNotInstalled) {
-                if ($moduleNotInstalled['attributes']['name'] == $value) {
-                    $uninstalled[] = $moduleNotInstalled;
+                if ($continue) {
+                    continue;
+                }
+                foreach ($modulesListUnsorted['not_installed'] as $moduleNotInstalled) {
+                    if ($moduleNotInstalled['attributes']['name'] == $value) {
+                        $uninstalled[] = $moduleNotInstalled;
+                    }
                 }
             }
         }
@@ -483,6 +549,27 @@ class ModuleController extends FrameworkBundleAdminController
         }
 
         try {
+            if (
+                !in_array(
+                        $this->authorizationLevel($this::controller_name),
+                        array(
+                            PageVoter::LEVEL_CREATE,
+                            PageVoter::LEVEL_DELETE
+                        )
+                )
+            ){
+                return new JsonResponse(
+                    array(
+                        'status' => false,
+                        'msg' => $translator->trans(
+                            'You do not have permission to add this.',
+                            array(),
+                            'Admin.Notifications.Error'),
+                    ),
+                    200,
+                    array('Content-Type' => 'application/json')
+                );
+            }
             $file_uploaded = $request->files->get('file_uploaded');
             $constraints = array(
                 new Assert\NotNull(),
@@ -671,8 +758,8 @@ class ModuleController extends FrameworkBundleAdminController
 
     public function getModuleCartAction($moduleId)
     {
-        $adminModuleRepository = $this->get('prestashop.core.admin.module.repository');
-        $module = $adminModuleRepository->getModuleById($moduleId);
+        $moduleRepository = $this->get('prestashop.core.admin.module.repository');
+        $module = $moduleRepository->getModuleById($moduleId);
 
         $addOnsAdminDataProvider = $this->get('prestashop.core.admin.data_provider.module_interface');
         $addOnsAdminDataProvider->generateAddonsUrls(array($module));
@@ -684,6 +771,7 @@ class ModuleController extends FrameworkBundleAdminController
             '@PrestaShop/Admin/Module/Includes/modal_read_more_content.html.twig',
             array(
                 'module' => $moduleToPresent,
+                'level' => $this->authorizationLevel($this::controller_name),
             )
         );
     }

@@ -61,6 +61,10 @@ if ($tmp = strpos($_SERVER['REQUEST_URI'], '?')) {
 }
 $_SERVER['REQUEST_URI'] = str_replace('//', '/', $_SERVER['REQUEST_URI']);
 
+if (isset($_GET['adminDir']) && $_GET['adminDir'] && !defined('_PS_ADMIN_DIR_')) {
+    define('_PS_ADMIN_DIR_', base64_decode($_GET['adminDir']));
+}
+
 require_once(dirname(__FILE__).'/../init.php');
 Upgrade::migrateSettingsFile();
 require_once(_PS_CONFIG_DIR_.'bootstrap.php');
@@ -98,15 +102,21 @@ if (function_exists('date_default_timezone_set')) {
     date_default_timezone_set('Europe/Paris');
 }
 
-error_reporting(E_ALL);
-
-$upgrade->run();
+if (isset($_GET['action']) && method_exists($upgrade, 'do'.$_GET['action'])) {
+    $action = 'do'.$_GET['action'];
+    $upgrade->$action();
+} else {
+    $upgrade->run();
+}
 
 $result = '<?xml version="1.0" encoding="UTF-8"?>';
 if (empty($upgrade->hasFailure())) {
-    Configuration::updateValue('PS_HIDE_OPTIMIZATION_TIPS', 0);
-    Configuration::updateValue('PS_NEED_REBUILD_INDEX', 1);
-    Configuration::updateValue('PS_VERSION_DB', _PS_INSTALL_VERSION_);
+    if (!isset($_GET['action']) || 'UpgradeComplete' === $_GET['action']) {
+        Configuration::updateValue('PS_HIDE_OPTIMIZATION_TIPS', 0);
+        Configuration::updateValue('PS_NEED_REBUILD_INDEX', 1);
+        Configuration::updateValue('PS_VERSION_DB', _PS_INSTALL_VERSION_);
+    }
+
     $result .= '<action result="ok" id="">'."\n";
     foreach ($upgrade->getInfoList() as $info) {
         $result .= $info."\n";
@@ -123,9 +133,13 @@ if (empty($upgrade->hasFailure())) {
 
 if ($upgrade->getInAutoUpgrade()) {
     header('Content-Type: application/json');
-    echo json_encode(array('nextQuickInfo' => $upgrade->getNextQuickInfo(), 'nextErrors' => $upgrade->getNextErrors(),
-                            'next' => $upgrade->getNext(), 'nextDesc' => $upgrade->getNextDesc(),
-                            'warningExists' => $upgrade->hasWarning()));
+    echo json_encode(array(
+        'nextQuickInfo' => $upgrade->getNextQuickInfo(),
+        'nextErrors' => $upgrade->getNextErrors(),
+        'next' => $upgrade->getNext(),
+        'nextDesc' => $upgrade->getNextDesc(),
+        'warningExists' => $upgrade->hasWarning()
+    ));
 } else {
     header('Content-Type: text/xml');
     echo $result;

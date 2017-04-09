@@ -25,45 +25,10 @@
  */
 namespace PrestaShopBundle\Service\Cache;
 
-use Symfony\Bundle\FrameworkBundle\Console\Application;
-use Symfony\Component\Console\Output\BufferedOutput;
-use Symfony\Component\Console\Input\ArrayInput;
+use PrestaShopBundle\Service\Command\AbstractCommand;
 
-/**
- * Refresh Sf2 cache.
- */
-class Refresh
+class Refresh extends AbstractCommand
 {
-    private $env;
-    private $application;
-    private $commands;
-
-    /**
-     * Constructor.
-     *
-     * Construct the symfony environment.
-     *
-     * @param string $env Environment to set.
-     */
-    public function __construct($env = null)
-    {
-        umask(0000);
-        set_time_limit(0);
-
-        if (null === $env) {
-            $this->env = _PS_MODE_DEV_ ? 'dev' : 'prod';
-        } else {
-            $this->env = $env;
-        }
-
-        $this->commands = array();
-
-        require_once _PS_ROOT_DIR_.'/app/AppKernel.php';
-        $kernel = new \AppKernel($this->env, false);
-        $this->application = new Application($kernel);
-        $this->application->setAutoExit(false);
-    }
-
     /**
      * Add cache:clear to the execution.
      */
@@ -100,31 +65,5 @@ class Refresh
             'command' => 'doctrine:schema:update',
             '--force' => true,
         );
-    }
-
-    /**
-     * Execute all defined commands.
-     *
-     * @throws \Exception if no command defined
-     */
-    public function execute()
-    {
-        $bufferedOutput = new BufferedOutput();
-        $commandOutput = array();
-
-        if (empty($this->commands)) {
-            throw new \Exception('Error, you need to define at least one command');
-        }
-
-        foreach ($this->commands as $command) {
-            $exitCode = $this->application->run(new ArrayInput($command), $bufferedOutput);
-
-            $commandOutput[$command['command']] = array(
-                'exitCode' => $exitCode,
-                'output' => $bufferedOutput->fetch(),
-            );
-        }
-
-        return $commandOutput;
     }
 }

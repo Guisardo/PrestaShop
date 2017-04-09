@@ -2117,10 +2117,13 @@ class ProductCore extends ObjectModel
     * @param bool $groupByIdAttributeGroup
     * @return array Product attributes combinations
     */
-    public function getAttributeCombinations($id_lang, $groupByIdAttributeGroup = true)
+    public function getAttributeCombinations($id_lang = null, $groupByIdAttributeGroup = true)
     {
         if (!Combination::isFeatureActive()) {
             return array();
+        }
+        if (is_null($id_lang)) {
+            $id_lang = Context::getContext()->language->id;
         }
 
         $sql = 'SELECT pa.*, product_attribute_shop.*, ag.`id_attribute_group`, ag.`is_color_group`, agl.`name` AS group_name, al.`name` AS attribute_name,
@@ -4315,7 +4318,7 @@ class ProductCore extends ObjectModel
     {
         Hook::exec('actionGetProductPropertiesBefore', [
             'id_lang'   => $id_lang,
-            'product'   => $row,
+            'product'   => &$row,
             'context'   => $context
         ]);
 
@@ -4505,7 +4508,7 @@ class ProductCore extends ObjectModel
 
         Hook::exec('actionGetProductPropertiesAfter', [
             'id_lang'   => $id_lang,
-            'product'   => $row,
+            'product'   => &$row,
             'context'   => $context
         ]);
 
@@ -5075,7 +5078,7 @@ class ProductCore extends ObjectModel
 
     public function getNoPackPrice()
     {
-        return Pack::noPackPrice((int)$this->id);
+        return Tools::displayPrice(Pack::noPackPrice((int)$this->id));
     }
 
     public function checkAccess($id_customer)
@@ -5739,6 +5742,18 @@ class ProductCore extends ObjectModel
         '.Shop::addSqlAssociation('attribute', 'pac').'
         WHERE pa.`id_product` = '.(int)$id_product);
         return $result;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasCombinations()
+    {
+        if (is_null($this->id) || 0 >= $this->id) {
+            return false;
+        }
+        $attributes = self::getAttributesInformationsByProduct($this->id);
+        return !empty($attributes);
     }
 
     public static function getIdProductAttributesByIdAttributes($id_product, $id_attributes, $find_best = false)

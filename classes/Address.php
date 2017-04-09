@@ -120,7 +120,7 @@ class AddressCore extends ObjectModel
             'id_country' => array('type' => self::TYPE_INT, 'validate' => 'isUnsignedId', 'required' => true),
             'id_state' => array('type' => self::TYPE_INT, 'validate' => 'isNullOrUnsignedId'),
             'alias' => array('type' => self::TYPE_STRING, 'validate' => 'isGenericName', 'required' => true, 'size' => 32),
-            'company' => array('type' => self::TYPE_STRING, 'validate' => 'isGenericName', 'size' => 64),
+            'company' => array('type' => self::TYPE_STRING, 'validate' => 'isGenericName', 'size' => 255),
             'lastname' => array('type' => self::TYPE_STRING, 'validate' => 'isName', 'required' => true, 'size' => 32),
             'firstname' => array('type' => self::TYPE_STRING, 'validate' => 'isName', 'required' => true, 'size' => 32),
             'vat_number' => array('type' => self::TYPE_STRING, 'validate' => 'isGenericName'),
@@ -443,12 +443,23 @@ class AddressCore extends ObjectModel
                 $address->id_country = (int)$context->customer->geoloc_id_country;
                 $address->id_state   = (int)$context->customer->id_state;
                 $address->postcode   = $context->customer->postcode;
+            } elseif ((int)$context->country->id && ((int)$context->country->id != Configuration::get('PS_SHOP_COUNTRY_ID'))) {
+                $address             = new Address();
+                $address->id_country = (int)$context->country->id;
+                $address->id_state   = 0;
+                $address->postcode   = 0;
+            } elseif ((int)Configuration::get('PS_SHOP_COUNTRY_ID')) {
+                // set the default address
+                $address             = new Address();
+                $address->id_country = Configuration::get('PS_SHOP_COUNTRY_ID');
+                $address->id_state   = Configuration::get('PS_SHOP_STATE_ID');
+                $address->postcode   = Configuration::get('PS_SHOP_CODE');
             } else {
                 // set the default address
                 $address             = new Address();
-                $address->id_country = Configuration::get('PS_SHOP_COUNTRY_ID') ? Configuration::get('PS_SHOP_COUNTRY_ID') : Configuration::get('PS_COUNTRY_DEFAULT');
-                $address->id_state   = Configuration::get('PS_SHOP_STATE_ID');
-                $address->postcode   = Configuration::get('PS_SHOP_CODE');
+                $address->id_country = Configuration::get('PS_COUNTRY_DEFAULT');
+                $address->id_state   = 0;
+                $address->postcode   = 0;
             }
             Cache::store($cache_id, $address);
 

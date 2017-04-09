@@ -81,13 +81,17 @@ class SimpleCategory extends CommonAbstractType
             'attr' => ['placeholder' => $this->translator->trans('Category name', [], 'Admin.Catalog.Feature'), 'class' => 'ajax'],
             'constraints' => $options['ajax'] ? [] : array(
                 new Assert\NotBlank(),
-                new Assert\Length(array('min' => 1))
+                new Assert\Length(array('min' => 1, 'max' => 128))
             )
         ))
         ->add('id_parent', 'Symfony\Component\Form\Extension\Core\Type\ChoiceType', array(
             'choices' => $this->categories,
             'choices_as_values' => true,
             'required' => true,
+            'attr' => array(
+                'data-toggle' => 'select2',
+                'data-minimumResultsForSearch' => '7',
+            ),
             'label' => $this->translator->trans('Parent of the category', [], 'Admin.Catalog.Feature')
         ));
     }

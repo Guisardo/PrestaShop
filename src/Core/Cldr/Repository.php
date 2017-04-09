@@ -49,6 +49,7 @@ class Repository
         'az-az' => 'az-Cyrl-AZ',
         'bs-ba' => 'bs-Cyrl-BA',
         'en-pt' => 'en-GB',
+        'en-ud' => 'en-US',
         'eo-uy' => 'eo',
         'fr-qc' => 'fr-CA',
         'ku-tr' => 'en-GB',
@@ -83,7 +84,7 @@ class Repository
         }
 
         $provider = new RunTimeProvider(
-            new FileProvider(new WebProvider, $this->cldrCacheFolder)
+            new FileProvider(new WebProvider('http://i18n.prestashop.com/cldr/json-full/'), $this->cldrCacheFolder)
         );
 
         //if contextLanguage is define, set locale/region from it
@@ -93,6 +94,10 @@ class Repository
             $locale = new Localize();
             $this->locale = $locale->getLanguage();
             $this->region = $locale->getRegion();
+        }
+
+        if ($this->locale == 'en' && $this->region == 'EN') {
+            $this->region = 'US';
         }
 
         $this->repository = new cldrRepository($provider);

@@ -39,61 +39,61 @@ class Tab
     /**
      * @var integer
      *
-     * @ORM\Column(name="id_tab", type="integer")
      * @ORM\Id
+     * @ORM\Column(name="id_tab", type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-    
+
     /**
      * @var integer
      *
      * @ORM\Column(name="id_parent", type="integer")
      */
     private $idParent;
-    
+
     /**
      * @var integer
      *
-     * @ORM\Column(name="position", type="integer", options={"unsigned"=true})
+     * @ORM\Column(name="position", type="integer")
      */
     private $position;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="module", type="string", length=64)
+     * @ORM\Column(name="module", type="string", length=64, nullable=true)
      */
     private $module;
-    
+
     /**
      * @var string
      *
-     * @ORM\Column(name="class_name", type="string", length=64)
+     * @ORM\Column(name="class_name", type="string", length=64, nullable=true)
      */
     private $className;
-    
+
     /**
      * @var boolean
      *
      * @ORM\Column(name="active", type="boolean")
      */
     private $active;
-    
+
     /**
      * @var boolean
      *
      * @ORM\Column(name="hide_host_mode", type="boolean")
      */
     private $hideHostMode;
-    
+
     /**
      * @var string
      *
      * @ORM\Column(name="icon", type="string", length=32)
      */
     private $icon;
-    
+
     /**
      * @ORM\OneToMany(targetEntity="PrestaShopBundle\Entity\TabLang", mappedBy="tab")
      */
@@ -134,7 +134,7 @@ class Tab
     {
         return $this->hideHostMode;
     }
-    
+
     public function getIcon()
     {
         return $this->icon;

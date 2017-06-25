@@ -43,6 +43,39 @@
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<link rel="icon" type="image/vnd.microsoft.icon" href="{$favicon_url}?{$img_update_time}" />
 		<link rel="shortcut icon" type="image/x-icon" href="{$favicon_url}?{$img_update_time}" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+		<link rel="manifest" href="/img/manifest.json">
+		<link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#9a61ad">
+		<link rel="shortcut icon" href="/img/favicon.ico">
+		<meta name="apple-mobile-web-app-title" content="Beb&eacute; Gamis&eacute;">
+		<meta name="application-name" content="Beb&eacute; Gamis&eacute;">
+		<meta name="msapplication-TileColor" content="#2d89ef">
+		<meta name="msapplication-TileImage" content="/img/mstile-144x144.png">
+		<meta name="msapplication-config" content="/img/browserconfig.xml">
+		<meta name="theme-color" content="#ffffff">
+		<script type="application/ld+json">
+		{
+		  "@context": "http://schema.org",
+		  "@type": "LocalBusiness",
+		  "email": "mailto:violeta@ropitas.com.ar",
+		  "description": "Comprá los más lindos bodys Gamisé para bebés, desde recién nacidos hasta dos años. 100% algodón al mejor precio. Garantizado!!",
+		  "name": "Tienda de Bebé Gamisé - www.ropitas.com.ar",
+		  "geo": {
+		    "@type": "GeoCoordinates",
+		    "latitude": "-34.5891592",
+		    "longitude": "-58.4050339"
+		  },
+		  "url" : "https://ropitas.com.ar",
+		  "sameAs" : [
+		    "http://www.facebook.com/ropitas.com.ar/",
+		    "https://tienda.ropitas.com.ar",
+		    "http://listado.mercadolibre.com.ar/_CustId_64701201"
+		  ],
+		  "telephone": "011-1537999717"
+		}
+		</script>
 		{if isset($css_files)}
 			{foreach from=$css_files key=css_uri item=media}
 				{if $css_uri == 'lteIE9'}

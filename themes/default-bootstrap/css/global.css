@@ -8572,7 +8572,12 @@ div.star.star_hover:after {
 
 
 #header {
-  background: url(https://tienda.ropitas.com.ar/modules/themeconfigurator/img/6a8336fd7dbe31c3190cf4cec75429cb5ebb0c98_1392033711287032372047075949990818452878983o.jpg) no-repeat top center !important;
+  background: url(https://tienda.ropitas.com.ar/modules/themeconfigurator/img/6a8336fd7dbe31c3190cf4cec75429cb5ebb0c98_1392033711287032372047075949990818452878983o.jpg) no-repeat top center !important
+}
+@media (max-width: 420px) {
+  #header {
+    background:url(https://tienda.ropitas.com.ar/modules/themeconfigurator/img/6a8336fd7dbe31c3190cf4cec75429cb5ebb0c98_1392033711287032372047075949990818452878983o.jpg) no-repeat 85% 0 !important
+  }
 }
 p.our_price_display {
   text-align: center;

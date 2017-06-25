@@ -70,7 +70,7 @@
 		  },
 		  "url" : "https://www.ropitas.com.ar",
 		  "sameAs" : [
-		    "http://www.facebook.com/ropitas.com.ar/",
+		    "https://www.facebook.com/ropitas.com.ar/",
 		    "https://tienda.ropitas.com.ar",
 		    "http://listado.mercadolibre.com.ar/_CustId_64701201"
 		  ],

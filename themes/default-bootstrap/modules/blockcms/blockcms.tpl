@@ -120,6 +120,11 @@
 				</a>
 			</li>
 			{/if}
+			<li>
+				<a href="{l s='https://www.mercadopago.com.ar/ayuda/Compra-protegida_601' mod='blockcms'}" title="{l s='¿Sabías que tu compra está protegida?' mod='blockcms'}" target="_blank">
+					{l s='¿Sabías que tu compra está protegida?' mod='blockcms'}
+				</a>
+			</li>
 		</ul>
 		{$footer_text}
 	</section>

@@ -336,6 +336,9 @@ function init()
 		$('tr#new_product td').fadeOut('fast');
 	});
 
+	$('#new_product').on('click', '#add_product_product_name', function() {
+		this.setSelectionRange(0, this.value.length);
+	});
 	$("#add_product_product_name").autocomplete(admin_order_tab_link,
 		{
 			minChars: 3,

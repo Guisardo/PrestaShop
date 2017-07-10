@@ -26,6 +26,20 @@
 var responsiveflag = false;
 
 $(document).ready(function(){
+	$(window).on('beforeunload', function() {
+		var $page = $('#page');
+		var $loader = $('#header_logo a').css({
+		    'position': 'fixed',
+		    'z-index': 9999,
+		    'top': '50%',
+		    'left': '50%',
+		    'margin-top': '-80px',
+		    'margin-left': '-80px'
+		}).addClass('ld ld-slide-btt x4');
+		$page.css({'opacity': 0.3});
+		$page.after($loader);
+	});
+
 	highdpiInit();
 	responsiveResize();
 	$(window).resize(responsiveResize);

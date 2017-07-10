@@ -41,16 +41,17 @@
 		</div><!-- #page -->
 {/if}
 {include file="$tpl_dir./global.tpl"}
-	<script>
-	  if ('serviceWorker' in navigator) {
-	    console.log("Will the service worker register?");
-	    navigator.serviceWorker.register('/service-worker.js')
-	      .then(function(reg){
-	        console.log("Yes, it did.");
-	      }).catch(function(err) {
-	        console.log("No it didn't. This happened: ", err)
-	      });
-	  }
-	</script>
+		<script>
+		  if ('serviceWorker' in navigator) {
+		    console.log("Will the service worker register?");
+		    navigator.serviceWorker.register('/service-worker.js')
+		      .then(function(reg){
+		        console.log("Yes, it did.");
+		      }).catch(function(err) {
+		        console.log("No it didn't. This happened: ", err)
+		      });
+		  }
+		</script>
+		<link rel="stylesheet" type="text/css" href="/themes/default-bootstrap/css/loading.css"/>
 	</body>
 </html>

@@ -44,7 +44,7 @@
 									{$orderProduct.name|truncate:15:'...'|escape:'html':'UTF-8'}
 								</a>
 							</h5>
-							
+
 							{if isset($orderProduct.description_short)}<p>{$orderProduct.description_short|strip_tags:'UTF-8'|truncate:50:'...'}</p>{/if}
 						</div>
 						{if $crossDisplayPrice AND $orderProduct.show_price == 1 AND !isset($restricted_country_mode) AND !$PS_CATALOG_MODE}
@@ -53,7 +53,7 @@
 							</p>
 						{/if}
 						<div class="clearfix" style="margin-top:5px">
-							{if !$PS_CATALOG_MODE && ($orderProduct.allow_oosp || $orderProduct.quantity > 0)}
+							{if false && ($orderProduct.allow_oosp || $orderProduct.quantity > 0)}
 								<div class="no-print">
 									<a class="exclusive button ajax_add_to_cart_button" href="{$link->getPageLink('cart', true, NULL, "qty=1&amp;id_product={$orderProduct.id_product|intval}&amp;token={$static_token}&amp;add")|escape:'html':'UTF-8'}" data-id-product="{$orderProduct.id_product|intval}" title="{l s='Add to cart' mod='crossselling'}">
 										<span>{l s='Add to cart' mod='crossselling'}</span>

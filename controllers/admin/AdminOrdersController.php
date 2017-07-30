@@ -57,22 +57,38 @@ class AdminOrdersControllerCore extends AdminController
         $this->context = Context::getContext();
 
         $this->_select = '
-		a.id_currency,
-		a.id_order AS id_pdf,
-		CONCAT(LEFT(c.`firstname`, 1), \'. \', c.`lastname`) AS `customer`,
-		osl.`name` AS `osname`,
-		os.`color`,
-		IF((SELECT so.id_order FROM `'._DB_PREFIX_.'orders` so WHERE so.id_customer = a.id_customer AND so.id_order < a.id_order LIMIT 1) > 0, 0, 1) as new,
-		country_lang.name as cname,
-		IF(a.valid, 1, 0) badge_success';
+        a.id_currency,
+        a.id_order AS id_pdf,
+
+        IF (c.id_customer = 26,
+(SELECT ifnull(customer_message.message, message.message)
+FROM '._DB_PREFIX_.'orders orders
+LEFT JOIN '._DB_PREFIX_.'message message on message.id_order = orders.id_order
+LEFT JOIN (
+select customer_thread.id_order, max(customer_message.id_customer_message) as id_customer_message
+FROM '._DB_PREFIX_.'customer_thread customer_thread
+inner JOIN '._DB_PREFIX_.'customer_message customer_message on customer_message.id_customer_thread = customer_thread.id_customer_thread
+group by customer_thread.id_order, customer_thread.id_customer_thread
+) last_customer_message on last_customer_message.id_order = orders.id_order
+LEFT JOIN '._DB_PREFIX_.'customer_message customer_message on customer_message.id_customer_message = last_customer_message.id_customer_message
+WHERE orders.id_order = a.id_order LIMIT 0,1
+)
+        ,
+CONCAT(LEFT(c.`firstname`, 1), \'. \', c.`lastname`)
+        )
+        AS `customer`,
+        osl.`name` AS `osname`,
+        os.`color`,
+        IF((SELECT so.id_order FROM `'._DB_PREFIX_.'orders` so WHERE so.id_customer = a.id_customer AND so.id_order < a.id_order LIMIT 1) > 0, 0, 1) as new,
+        state.`name` as cname,
+        IF(a.valid, 1, 0) badge_success';
 
         $this->_join = '
-		LEFT JOIN `'._DB_PREFIX_.'customer` c ON (c.`id_customer` = a.`id_customer`)
-		LEFT JOIN `'._DB_PREFIX_.'address` address ON address.id_address = a.id_address_delivery
-		LEFT JOIN `'._DB_PREFIX_.'country` country ON address.id_country = country.id_country
-		LEFT JOIN `'._DB_PREFIX_.'country_lang` country_lang ON (country.`id_country` = country_lang.`id_country` AND country_lang.`id_lang` = '.(int)$this->context->language->id.')
-		LEFT JOIN `'._DB_PREFIX_.'order_state` os ON (os.`id_order_state` = a.`current_state`)
-		LEFT JOIN `'._DB_PREFIX_.'order_state_lang` osl ON (os.`id_order_state` = osl.`id_order_state` AND osl.`id_lang` = '.(int)$this->context->language->id.')';
+        LEFT JOIN `'._DB_PREFIX_.'customer` c ON (c.`id_customer` = a.`id_customer`)
+        LEFT JOIN `'._DB_PREFIX_.'address` address ON address.id_address = a.id_address_delivery
+        LEFT JOIN `'._DB_PREFIX_.'state` state ON address.id_state = state.id_state
+        LEFT JOIN `'._DB_PREFIX_.'order_state` os ON (os.`id_order_state` = a.`current_state`)
+        LEFT JOIN `'._DB_PREFIX_.'order_state_lang` osl ON (os.`id_order_state` = osl.`id_order_state` AND osl.`id_lang` = '.(int)$this->context->language->id.')';
         $this->_orderBy = 'id_order';
         $this->_orderWay = 'DESC';
         $this->_use_found_rows = true;
@@ -151,19 +167,18 @@ class AdminOrdersControllerCore extends AdminController
             )
         ));
 
-        if (Country::isCurrentlyUsed('country', true)) {
+        if (State::isCurrentlyUsed('state', true)) {
             $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
-			SELECT DISTINCT c.id_country, cl.`name`
-			FROM `'._DB_PREFIX_.'orders` o
-			'.Shop::addSqlAssociation('orders', 'o').'
-			INNER JOIN `'._DB_PREFIX_.'address` a ON a.id_address = o.id_address_delivery
-			INNER JOIN `'._DB_PREFIX_.'country` c ON a.id_country = c.id_country
-			INNER JOIN `'._DB_PREFIX_.'country_lang` cl ON (c.`id_country` = cl.`id_country` AND cl.`id_lang` = '.(int)$this->context->language->id.')
-			ORDER BY cl.name ASC');
+            SELECT DISTINCT c.id_state, c.`name`
+            FROM `'._DB_PREFIX_.'orders` o
+            '.Shop::addSqlAssociation('orders', 'o').'
+            INNER JOIN `'._DB_PREFIX_.'address` a ON a.id_address = o.id_address_delivery
+            INNER JOIN `'._DB_PREFIX_.'state` c ON a.id_state = c.id_state
+            ORDER BY c.name ASC');
 
             $country_array = array();
             foreach ($result as $row) {
-                $country_array[$row['id_country']] = $row['name'];
+                $country_array[$row['id_state']] = $row['name'];
             }
 
             $part1 = array_slice($this->fields_list, 0, 3);
@@ -172,7 +187,7 @@ class AdminOrdersControllerCore extends AdminController
                 'title' => $this->l('Delivery'),
                 'type' => 'select',
                 'list' => $country_array,
-                'filter_key' => 'country!id_country',
+                'filter_key' => 'state!id_state',
                 'filter_type' => 'int',
                 'order_key' => 'cname'
             );

@@ -103,7 +103,7 @@
         <script type="text/javascript">
                 setInterval(function() {
                         var _$iframe = $('iframe');
-                        if (_$iframe.parent().css('overflow') !== 'hidden') {
+                        if (_$iframe.length > 0 && _$iframe.parent().css('overflow') !== 'hidden') {
                                 _$iframe.iFrameResize().parent().css('overflow', 'hidden');
                         }
                 }, 700);

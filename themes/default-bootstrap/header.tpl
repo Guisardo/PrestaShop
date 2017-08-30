@@ -55,7 +55,7 @@
 		<meta name="msapplication-TileColor" content="#2d89ef">
 		<meta name="msapplication-TileImage" content="/img/mstile-144x144.png">
 		<meta name="msapplication-config" content="/img/browserconfig.xml">
-		<meta name="theme-color" content="#ffffff">
+		<meta name="theme-color" content="#9a61ad">
 		<script type="application/ld+json">
 		{
 		  "@context": "http://schema.org",

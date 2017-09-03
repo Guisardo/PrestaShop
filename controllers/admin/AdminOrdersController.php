@@ -1476,6 +1476,7 @@ CONCAT(LEFT(c.`firstname`, 1), \'. \', c.`lastname`)
                         $cartRuleObj->active = 0;
                         if ($res = $cartRuleObj->add()) {
                             $cart_rule['id'] = $cartRuleObj->id;
+                            $cart_rule['free_shipping'] = $cartRuleObj->free_shipping;
                         } else {
                             break;
                         }
@@ -1491,6 +1492,7 @@ CONCAT(LEFT(c.`firstname`, 1), \'. \', c.`lastname`)
                             $order_cart_rule->name = Tools::getValue('discount_name');
                             $order_cart_rule->value = $cart_rule['value_tax_incl'];
                             $order_cart_rule->value_tax_excl = $cart_rule['value_tax_excl'];
+                            $order_cart_rule->free_shipping = $cart_rule['free_shipping'];
                             $res &= $order_cart_rule->add();
 
                             $order->total_discounts += $order_cart_rule->value;

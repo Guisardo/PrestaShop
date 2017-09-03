@@ -269,12 +269,10 @@ class CartCore extends ObjectModel
         }
 
         Db::getInstance()->execute('
-			DELETE FROM `'._DB_PREFIX_.'customized_data`
-			WHERE `id_customization` IN (
-				SELECT `id_customization`
-				FROM `'._DB_PREFIX_.'customization`
-				WHERE `id_cart`='.(int)$this->id.'
-			)'
+			DELETE cd
+			FROM `' . _DB_PREFIX_ . 'customized_data` cd, `' . _DB_PREFIX_ . 'customization` c
+			WHERE cd.`id_customization` = c.`id_customization`
+			AND `id_cart` = ' . (int) $this->id
         );
 
         Db::getInstance()->execute('
@@ -2599,11 +2597,19 @@ class CartCore extends ObjectModel
         // The delivery option was selected
         if (isset($this->delivery_option) && $this->delivery_option != '') {
             $delivery_option = Tools::unSerialize($this->delivery_option);
-            $validated = true;
-            foreach ($delivery_option as $id_address => $key) {
-                if (!isset($delivery_option_list[$id_address][$key])) {
-                    $validated = false;
-                    break;
+            $validated = false;
+            foreach ($delivery_option as $key) {
+                foreach ($delivery_option_list as $id_address => $option) {
+                    if (isset($delivery_option_list[$id_address][$key])) {
+                        $validated = true;
+
+                        if (!isset($delivery_option[$id_address])) {
+                            $delivery_option = array();
+                            $delivery_option[$id_address] = $key;
+                        }
+
+                        break 2;
+                    }
                 }
             }
 

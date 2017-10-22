@@ -69,14 +69,14 @@
 		</tr>
 	{/if}
 
-	<tr class="bold">
+	<!--tr class="bold">
 		<td class="grey">
 			{l s='Total (Tax excl.)' pdf='true'}
 		</td>
 		<td class="white">
 			{displayPrice currency=$order->id_currency price=$footer.total_paid_tax_excl}
 		</td>
-	</tr>
+	</tr-->
 	{if $footer.total_taxes > 0}
 	<tr class="bold">
 		<td class="grey">

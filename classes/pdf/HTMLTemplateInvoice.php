@@ -90,7 +90,7 @@ class HTMLTemplateInvoiceCore extends HTMLTemplate
                 'width' => 15,
             ),
             'product' => array(
-                'width' => 40,
+                'width' => 48,
             ),
             'quantity' => array(
                 'width' => 8,

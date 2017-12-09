@@ -1,4 +1,4 @@
-var CACHE_NAME = 'ropitas-cache-v1';
+var CACHE_NAME = 'ropitas-cache-v1.3.0';
 /*
 var urlsToCache = [
   '/'
@@ -34,8 +34,19 @@ self.addEventListener('fetch', function(event) {
         return fetch(fetchRequest).then(
           function(response) {
             // Check if we received a valid response
-            if (!/\.jpg|\.png|\.gif|\.css|\.js|\.eot|\.svg|\.ttf|\.woff/i
-                  .test(event.request.url) || !response ||
+            var shouldExclude = true;
+            if (/\.jpg|\.png|\.gif|\.css|\.js|\.eot|\.svg|\.ttf|\.woff|\.html/i
+                  .test(event.request.url)) {
+              shouldExclude = false;
+            } else if (/css\?/.test(event.request.url)) {
+              shouldExclude = false;
+            } else if (/shipping\.php|socialrating/.test(event.request.url)) {
+              shouldExclude = false;
+            }
+            if (/service-worker\.js/) {
+              shouldExclude = true;
+            }
+            if (shouldExclude || !response ||
                 response.status !== 200 || response.type !== 'basic') {
               return response;
             }
